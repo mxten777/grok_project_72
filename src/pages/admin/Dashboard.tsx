@@ -1,0 +1,294 @@
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { ShoppingCart, DollarSign, AlertTriangle, Users, Package, TrendingUp, Bell, BarChart3, Sparkles, Shield } from 'lucide-react';
+
+const Dashboard = () => {
+  // 더미 데이터
+  const salesData = [
+    { month: '1월', sales: 1200000 },
+    { month: '2월', sales: 1500000 },
+    { month: '3월', sales: 1800000 },
+    { month: '4월', sales: 2200000 },
+    { month: '5월', sales: 2500000 },
+    { month: '6월', sales: 2800000 },
+  ];
+
+  const orderStatusData = [
+    { name: '대기', value: 45, color: '#fbbf24' },
+    { name: '처리중', value: 30, color: '#3b82f6' },
+    { name: '완료', value: 156, color: '#10b981' },
+  ];
+
+  const recentOrders = [
+    { id: 'ORD-001', customer: 'ABC 냉매', amount: '₩450,000', status: '완료', date: '2024-01-15' },
+    { id: 'ORD-002', customer: 'XYZ 부품', amount: '₩320,000', status: '처리중', date: '2024-01-14' },
+    { id: 'ORD-003', customer: 'DEF 가스', amount: '₩680,000', status: '대기', date: '2024-01-13' },
+    { id: 'ORD-004', customer: 'GHI 냉매', amount: '₩290,000', status: '완료', date: '2024-01-12' },
+  ];
+
+  const notifications = [
+    { id: 1, message: '재고 부족: R-134a 냉매 (남은 수량: 5개)', type: 'warning', time: '10분 전' },
+    { id: 2, message: '새 주문 접수: ORD-005 (₩750,000)', type: 'info', time: '1시간 전' },
+    { id: 3, message: '월간 목표 달성: 85% (₩10,500,000 / ₩12,000,000)', type: 'success', time: '2시간 전' },
+  ];
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case '완료': return 'text-success-600 bg-success-100';
+      case '처리중': return 'text-info-600 bg-info-100';
+      case '대기': return 'text-warning-600 bg-warning-100';
+      default: return 'text-secondary-600 bg-secondary-100';
+    }
+  };
+
+  const getNotificationColor = (type: string) => {
+    switch (type) {
+      case 'warning': return 'border-l-warning-500 bg-warning-50';
+      case 'info': return 'border-l-info-500 bg-info-50';
+      case 'success': return 'border-l-success-500 bg-success-50';
+      default: return 'border-l-secondary-500 bg-secondary-50';
+    }
+  };
+
+  return (
+    <div className="container-custom py-16">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-12 animate-fade-in-up">
+        <div className="flex items-center">
+          <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-3xl flex items-center justify-center mr-6 shadow-large animate-float">
+            <BarChart3 className="h-8 w-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-display font-bold text-secondary-900 mb-2">
+              관리자 대시보드
+            </h1>
+            <p className="text-secondary-600 flex items-center">
+              <Sparkles className="h-4 w-4 mr-2 text-accent-500" />
+              실시간 비즈니스 현황 모니터링
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center space-x-4">
+          <button className="btn-primary px-6 py-3 font-medium shadow-large hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+            보고서 내보내기
+          </button>
+        </div>
+      </div>
+
+      {/* KPI 카드 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="glass p-8 rounded-3xl animate-fade-in-up delay-100 hover:scale-105 transition-all duration-300 cursor-pointer group">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <p className="text-sm font-medium text-secondary-600 mb-2">총 주문</p>
+              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">156</p>
+              <p className="text-sm text-success-600 flex items-center">
+                <TrendingUp className="w-4 h-4 mr-1" />
+                +12% 전월 대비
+              </p>
+            </div>
+            <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center shadow-soft group-hover:shadow-large transition-shadow">
+              <ShoppingCart className="w-8 h-8 text-white" />
+            </div>
+          </div>
+        </div>
+
+        <div className="glass p-8 rounded-3xl animate-fade-in-up delay-200 hover:scale-105 transition-all duration-300 cursor-pointer group">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <p className="text-sm font-medium text-secondary-600 mb-2">총 매출</p>
+              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">₩12,450,000</p>
+              <p className="text-sm text-success-600 flex items-center">
+                <TrendingUp className="w-4 h-4 mr-1" />
+                +18% 전월 대비
+              </p>
+            </div>
+            <div className="w-16 h-16 bg-gradient-to-br from-success-400 to-success-600 rounded-2xl flex items-center justify-center shadow-soft group-hover:shadow-large transition-shadow">
+              <DollarSign className="w-8 h-8 text-white" />
+            </div>
+          </div>
+        </div>
+
+        <div className="glass p-8 rounded-3xl animate-fade-in-up delay-300 hover:scale-105 transition-all duration-300 cursor-pointer group">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <p className="text-sm font-medium text-secondary-600 mb-2">재고 부족 상품</p>
+              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">3</p>
+              <p className="text-sm text-error-600 flex items-center">
+                <AlertTriangle className="w-4 h-4 mr-1" />
+                긴급 확인 필요
+              </p>
+            </div>
+            <div className="w-16 h-16 bg-gradient-to-br from-error-400 to-error-600 rounded-2xl flex items-center justify-center shadow-soft group-hover:shadow-large transition-shadow">
+              <Package className="w-8 h-8 text-white" />
+            </div>
+          </div>
+        </div>
+
+        <div className="glass p-8 rounded-3xl animate-fade-in-up delay-400 hover:scale-105 transition-all duration-300 cursor-pointer group">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <p className="text-sm font-medium text-secondary-600 mb-2">신규 고객</p>
+              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">24</p>
+              <p className="text-sm text-info-600 flex items-center">
+                <TrendingUp className="w-4 h-4 mr-1" />
+                +8% 전월 대비
+              </p>
+            </div>
+            <div className="w-16 h-16 bg-gradient-to-br from-info-400 to-info-600 rounded-2xl flex items-center justify-center shadow-soft group-hover:shadow-large transition-shadow">
+              <Users className="w-8 h-8 text-white" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 차트 섹션 */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        {/* 매출 추이 차트 */}
+        <div className="card p-8 animate-fade-in-up delay-500">
+          <div className="flex items-center mb-6">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center mr-4 shadow-soft">
+              <TrendingUp className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-display font-bold text-secondary-900">월별 매출 추이</h3>
+          </div>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={salesData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="month" stroke="#6b7280" />
+              <YAxis stroke="#6b7280" />
+              <Tooltip
+                formatter={(value) => [`₩${value.toLocaleString()}`, '매출']}
+                contentStyle={{
+                  backgroundColor: 'white',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)'
+                }}
+              />
+              <Line
+                type="monotone"
+                dataKey="sales"
+                stroke="#3b82f6"
+                strokeWidth={3}
+                dot={{ fill: '#3b82f6', strokeWidth: 2, r: 6 }}
+                activeDot={{ r: 8, stroke: '#3b82f6', strokeWidth: 2, fill: 'white' }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* 주문 상태 차트 */}
+        <div className="card p-8 animate-fade-in-up delay-600">
+          <div className="flex items-center mb-6">
+            <div className="w-12 h-12 bg-gradient-to-br from-accent-400 to-accent-600 rounded-2xl flex items-center justify-center mr-4 shadow-soft">
+              <BarChart3 className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-display font-bold text-secondary-900">주문 상태 분포</h3>
+          </div>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={orderStatusData}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={100}
+                paddingAngle={5}
+                dataKey="value"
+              >
+                {orderStatusData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: 'white',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)'
+                }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+          <div className="flex justify-center space-x-6 mt-6">
+            {orderStatusData.map((item) => (
+              <div key={item.name} className="flex items-center">
+                <div className="w-4 h-4 rounded-full mr-3 shadow-soft" style={{ backgroundColor: item.color }}></div>
+                <span className="text-sm font-medium text-secondary-700">{item.name}: {item.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 최근 주문 및 알림 센터 */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* 최근 주문 */}
+        <div className="card animate-fade-in-up delay-700">
+          <div className="p-8 border-b border-secondary-200/50">
+            <div className="flex items-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-success-400 to-success-600 rounded-2xl flex items-center justify-center mr-4 shadow-soft">
+                <Package className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-display font-bold text-secondary-900">최근 주문</h3>
+            </div>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-secondary-50/50">
+                <tr>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">주문번호</th>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">고객사</th>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">금액</th>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">상태</th>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">날짜</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-secondary-200/30">
+                {recentOrders.map((order) => (
+                  <tr key={order.id} className="hover:bg-secondary-50/30 transition-colors">
+                    <td className="px-8 py-6 whitespace-nowrap text-sm font-display font-bold text-secondary-900">{order.id}</td>
+                    <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-700">{order.customer}</td>
+                    <td className="px-8 py-6 whitespace-nowrap text-sm font-medium text-secondary-900">{order.amount}</td>
+                    <td className="px-8 py-6 whitespace-nowrap">
+                      <span className={`inline-flex px-3 py-1 text-xs font-display font-bold rounded-full ${getStatusColor(order.status)}`}>
+                        {order.status}
+                      </span>
+                    </td>
+                    <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-600">{order.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* 알림 센터 */}
+        <div className="card animate-fade-in-up delay-800">
+          <div className="p-8 border-b border-secondary-200/50 flex items-center justify-between">
+            <div className="flex items-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-warning-400 to-warning-600 rounded-2xl flex items-center justify-center mr-4 shadow-soft">
+                <Bell className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-display font-bold text-secondary-900">알림 센터</h3>
+            </div>
+            <Shield className="w-5 h-5 text-secondary-400" />
+          </div>
+          <div className="divide-y divide-secondary-200/30">
+            {notifications.map((notification) => (
+              <div key={notification.id} className={`p-6 border-l-4 ${getNotificationColor(notification.type)} hover:bg-secondary-50/30 transition-colors`}>
+                <p className="text-sm font-medium text-secondary-900 leading-relaxed">{notification.message}</p>
+                <p className="text-xs text-secondary-500 mt-2 flex items-center">
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  {notification.time}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;

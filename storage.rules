@@ -1,0 +1,30 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // 사용자 인증 확인
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && request.auth.token.email == 'jngdy@naver.com';
+    }
+
+    // 상품 이미지 (읽기: 모두, 쓰기: 관리자만)
+    match /products/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 프로필 이미지 (읽기: 모두, 쓰기: 본인만)
+    match /profiles/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // 기타 파일 (관리자만)
+    match /{allPaths=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

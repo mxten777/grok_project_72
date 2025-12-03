@@ -1,0 +1,64 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 사용자 인증 확인 헬퍼 함수
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && request.auth.token.email == 'jngdy@naver.com';
+    }
+
+    // 사용자 프로필
+    match /users/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+
+    // 상품 (읽기: 모두, 쓰기: 관리자만)
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 주문
+    match /orders/{orderId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated(); // 주문 상태 업데이트
+      allow delete: if isAdmin();
+    }
+
+    // 재고 이력
+    match /inventory/{inventoryId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // 가격 규칙
+    match /priceRules/{ruleId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 상품 문의
+    match /productQuestions/{questionId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated(); // 답변 작성
+    }
+
+    // 위시리스트
+    match /wishlists/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    // 장바구니
+    match /carts/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+  }
+}
