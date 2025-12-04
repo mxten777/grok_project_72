@@ -75,97 +75,170 @@ const Dashboard = () => {
       </div>
 
       {/* KPI 카드 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
-        <div className="glass p-8 rounded-3xl animate-fade-in-up delay-100 hover:scale-105 transition-all duration-300 cursor-pointer group">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <p className="text-sm font-medium text-secondary-600 mb-2">총 주문</p>
-              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">156</p>
-              <p className="text-sm text-success-600 flex items-center">
-                <TrendingUp className="w-4 h-4 mr-1" />
-                +12% 전월 대비
-              </p>
-            </div>
-            <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center shadow-soft group-hover:shadow-large transition-shadow">
-              <ShoppingCart className="w-8 h-8 text-white" />
-            </div>
-          </div>
-        </div>
-
-        <div className="glass p-8 rounded-3xl animate-fade-in-up delay-200 hover:scale-105 transition-all duration-300 cursor-pointer group">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <p className="text-sm font-medium text-secondary-600 mb-2">총 매출</p>
-              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">₩12,450,000</p>
-              <p className="text-sm text-success-600 flex items-center">
-                <TrendingUp className="w-4 h-4 mr-1" />
-                +18% 전월 대비
-              </p>
-            </div>
-            <div className="w-16 h-16 bg-gradient-to-br from-success-400 to-success-600 rounded-2xl flex items-center justify-center shadow-soft group-hover:shadow-large transition-shadow">
-              <DollarSign className="w-8 h-8 text-white" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-16">
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-primary-600/10 to-primary-700/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+          <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-3xl border border-primary-200/30 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-100 hover:scale-[1.02] transition-all duration-500 cursor-pointer group/card overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-400/10 to-primary-600/5 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-secondary-700 mb-3 tracking-wide uppercase">총 주문</p>
+                  <p className="text-5xl font-display font-bold bg-gradient-to-r from-primary-700 to-primary-900 bg-clip-text text-transparent mb-3">156</p>
+                  <div className="flex items-center">
+                    <div className="flex items-center bg-success-50 px-3 py-1 rounded-full border border-success-200/50">
+                      <TrendingUp className="w-4 h-4 mr-2 text-success-600" strokeWidth={2} />
+                      <span className="text-sm font-semibold text-success-700">+12% 전월 대비</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-20 h-20 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 rounded-3xl flex items-center justify-center shadow-xl group-hover/card:shadow-2xl transition-all duration-500 group-hover/card:scale-110">
+                  <ShoppingCart className="w-10 h-10 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="glass p-8 rounded-3xl animate-fade-in-up delay-300 hover:scale-105 transition-all duration-300 cursor-pointer group">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <p className="text-sm font-medium text-secondary-600 mb-2">재고 부족 상품</p>
-              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">3</p>
-              <p className="text-sm text-error-600 flex items-center">
-                <AlertTriangle className="w-4 h-4 mr-1" />
-                긴급 확인 필요
-              </p>
-            </div>
-            <div className="w-16 h-16 bg-gradient-to-br from-error-400 to-error-600 rounded-2xl flex items-center justify-center shadow-soft group-hover:shadow-large transition-shadow">
-              <Package className="w-8 h-8 text-white" />
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-success-500/20 via-success-600/10 to-success-700/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+          <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-3xl border border-success-200/30 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-200 hover:scale-[1.02] transition-all duration-500 cursor-pointer group/card overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-success-400/10 to-success-600/5 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-secondary-700 mb-3 tracking-wide uppercase">총 매출</p>
+                  <p className="text-5xl font-display font-bold bg-gradient-to-r from-success-700 to-success-900 bg-clip-text text-transparent mb-3">₩12,450,000</p>
+                  <div className="flex items-center">
+                    <div className="flex items-center bg-success-50 px-3 py-1 rounded-full border border-success-200/50">
+                      <TrendingUp className="w-4 h-4 mr-2 text-success-600" strokeWidth={2} />
+                      <span className="text-sm font-semibold text-success-700">+18% 전월 대비</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-20 h-20 bg-gradient-to-br from-success-500 via-success-600 to-success-700 rounded-3xl flex items-center justify-center shadow-xl group-hover/card:shadow-2xl transition-all duration-500 group-hover/card:scale-110">
+                  <DollarSign className="w-10 h-10 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="glass p-8 rounded-3xl animate-fade-in-up delay-400 hover:scale-105 transition-all duration-300 cursor-pointer group">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <p className="text-sm font-medium text-secondary-600 mb-2">신규 고객</p>
-              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">24</p>
-              <p className="text-sm text-info-600 flex items-center">
-                <TrendingUp className="w-4 h-4 mr-1" />
-                +8% 전월 대비
-              </p>
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-error-500/20 via-error-600/10 to-error-700/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+          <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-3xl border border-error-200/30 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-300 hover:scale-[1.02] transition-all duration-500 cursor-pointer group/card overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-error-400/10 to-error-600/5 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-secondary-700 mb-3 tracking-wide uppercase">재고 부족 상품</p>
+                  <p className="text-5xl font-display font-bold bg-gradient-to-r from-error-700 to-error-900 bg-clip-text text-transparent mb-3">3</p>
+                  <div className="flex items-center">
+                    <div className="flex items-center bg-error-50 px-3 py-1 rounded-full border border-error-200/50">
+                      <AlertTriangle className="w-4 h-4 mr-2 text-error-600" strokeWidth={2} />
+                      <span className="text-sm font-semibold text-error-700">긴급 확인 필요</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-20 h-20 bg-gradient-to-br from-error-500 via-error-600 to-error-700 rounded-3xl flex items-center justify-center shadow-xl group-hover/card:shadow-2xl transition-all duration-500 group-hover/card:scale-110">
+                  <Package className="w-10 h-10 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+              </div>
             </div>
-            <div className="w-16 h-16 bg-gradient-to-br from-info-400 to-info-600 rounded-2xl flex items-center justify-center shadow-soft group-hover:shadow-large transition-shadow">
-              <Users className="w-8 h-8 text-white" />
+          </div>
+        </div>
+
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-info-500/20 via-info-600/10 to-info-700/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+          <div className="relative bg-white/80 backdrop-blur-xl p-8 rounded-3xl border border-info-200/30 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-400 hover:scale-[1.02] transition-all duration-500 cursor-pointer group/card overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-info-400/10 to-info-600/5 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-secondary-700 mb-3 tracking-wide uppercase">신규 고객</p>
+                  <p className="text-5xl font-display font-bold bg-gradient-to-r from-info-700 to-info-900 bg-clip-text text-transparent mb-3">24</p>
+                  <div className="flex items-center">
+                    <div className="flex items-center bg-success-50 px-3 py-1 rounded-full border border-success-200/50">
+                      <TrendingUp className="w-4 h-4 mr-2 text-success-600" strokeWidth={2} />
+                      <span className="text-sm font-semibold text-success-700">+8% 전월 대비</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-20 h-20 bg-gradient-to-br from-info-500 via-info-600 to-info-700 rounded-3xl flex items-center justify-center shadow-xl group-hover/card:shadow-2xl transition-all duration-500 group-hover/card:scale-110">
+                  <Users className="w-10 h-10 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* 차트 섹션 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
         {/* 매출 추이 차트 */}
-        <div className="card p-8 animate-fade-in-up delay-500">
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center mr-4 shadow-soft">
-              <TrendingUp className="w-6 h-6 text-white" />
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-primary-600/5 to-primary-700/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+          <div className="relative bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-primary-200/20 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-500 overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary-400/5 to-primary-600/3 rounded-full -translate-y-20 translate-x-20"></div>
+            <div className="relative z-10">
+              <div className="flex items-center mb-8">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 rounded-2xl flex items-center justify-center mr-5 shadow-xl">
+                  <TrendingUp className="w-7 h-7 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-display font-bold bg-gradient-to-r from-primary-700 to-primary-900 bg-clip-text text-transparent">월별 매출 추이</h3>
+                  <p className="text-sm text-secondary-600 font-medium">지난 6개월 매출 현황</p>
+                </div>
+              </div>
+              <ResponsiveContainer width="100%" height={280} className="sm:h-[320px]">
+                <LineChart data={salesData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+                  <XAxis
+                    dataKey="month"
+                    stroke="#6b7280"
+                    fontSize={12}
+                    fontWeight={500}
+                    tick={{ fill: '#6b7280' }}
+                  />
+                  <YAxis
+                    stroke="#6b7280"
+                    fontSize={12}
+                    fontWeight={500}
+                    tick={{ fill: '#6b7280' }}
+                    tickFormatter={(value) => `₩${(value / 10000).toFixed(0)}만`}
+                  />
+                  <Tooltip
+                    formatter={(value) => [`₩${value.toLocaleString()}`, '매출']}
+                    contentStyle={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(229, 231, 235, 0.5)',
+                      borderRadius: '16px',
+                      boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
+                      fontSize: '14px',
+                      fontWeight: '500'
+                    }}
+                    labelStyle={{ color: '#374151', fontWeight: '600' }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="sales"
+                    stroke="url(#primaryGradient)"
+                    strokeWidth={3}
+                    dot={{ fill: '#0ea5e9', strokeWidth: 2, r: 6, stroke: '#ffffff' }}
+                    activeDot={{ r: 8, stroke: '#0ea5e9', strokeWidth: 2, fill: '#ffffff' }}
+                  />
+                  <defs>
+                    <linearGradient id="primaryGradient" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#0ea5e9" />
+                      <stop offset="100%" stopColor="#0284c7" />
+                    </linearGradient>
+                  </defs>
+                </LineChart>
+              </ResponsiveContainer>
             </div>
-            <h3 className="text-2xl font-display font-bold text-secondary-900">월별 매출 추이</h3>
           </div>
-          <ResponsiveContainer width="100%" height={250} className="sm:h-[300px]">
-            <LineChart data={salesData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis dataKey="month" stroke="#6b7280" />
-              <YAxis stroke="#6b7280" />
-              <Tooltip
-                formatter={(value) => [`₩${value.toLocaleString()}`, '매출']}
-                contentStyle={{
-                  backgroundColor: 'white',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '12px',
-                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)'
-                }}
-              />
-              <Line
+        </div>
                 type="monotone"
                 dataKey="sales"
                 stroke="#3b82f6"
@@ -178,87 +251,115 @@ const Dashboard = () => {
         </div>
 
         {/* 주문 상태 차트 */}
-        <div className="card p-8 animate-fade-in-up delay-600">
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-accent-400 to-accent-600 rounded-2xl flex items-center justify-center mr-4 shadow-soft">
-              <BarChart3 className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-2xl font-display font-bold text-secondary-900">주문 상태 분포</h3>
-          </div>
-          <ResponsiveContainer width="100%" height={250} className="sm:h-[300px]">
-            <PieChart>
-              <Pie
-                data={orderStatusData}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={100}
-                paddingAngle={5}
-                dataKey="value"
-              >
-                {orderStatusData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: 'white',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '12px',
-                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)'
-                }}
-              />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="flex justify-center space-x-6 mt-6">
-            {orderStatusData.map((item) => (
-              <div key={item.name} className="flex items-center">
-                <div className="w-4 h-4 rounded-full mr-3 shadow-soft" style={{ backgroundColor: item.color }}></div>
-                <span className="text-sm font-medium text-secondary-700">{item.name}: {item.value}</span>
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent-500/10 via-accent-600/5 to-accent-700/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+          <div className="relative bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-accent-200/20 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-600 overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-accent-400/5 to-accent-600/3 rounded-full -translate-y-20 translate-x-20"></div>
+            <div className="relative z-10">
+              <div className="flex items-center mb-8">
+                <div className="w-14 h-14 bg-gradient-to-br from-accent-500 via-accent-600 to-accent-700 rounded-2xl flex items-center justify-center mr-5 shadow-xl">
+                  <BarChart3 className="w-7 h-7 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-display font-bold bg-gradient-to-r from-accent-700 to-accent-900 bg-clip-text text-transparent">주문 상태 분포</h3>
+                  <p className="text-sm text-secondary-600 font-medium">현재 주문 처리 현황</p>
+                </div>
               </div>
-            ))}
+              <ResponsiveContainer width="100%" height={280} className="sm:h-[320px]">
+                <PieChart>
+                  <Pie
+                    data={orderStatusData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={70}
+                    outerRadius={110}
+                    paddingAngle={3}
+                    dataKey="value"
+                    stroke="white"
+                    strokeWidth={2}
+                  >
+                    {orderStatusData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    formatter={(value, name) => [`${value}건`, name]}
+                    contentStyle={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(229, 231, 235, 0.5)',
+                      borderRadius: '16px',
+                      boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
+                      fontSize: '14px',
+                      fontWeight: '500'
+                    }}
+                    labelStyle={{ color: '#374151', fontWeight: '600' }}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                {orderStatusData.map((item) => (
+                  <div key={item.name} className="flex items-center bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-secondary-200/30 shadow-sm">
+                    <div className="w-4 h-4 rounded-full mr-3 shadow-md" style={{ backgroundColor: item.color }}></div>
+                    <span className="text-sm font-semibold text-secondary-700">{item.name}: {item.value}건</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* 최근 주문 및 알림 센터 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* 최근 주문 */}
-        <div className="card animate-fade-in-up delay-700">
-          <div className="p-8 border-b border-secondary-200/50">
-            <div className="flex items-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-success-400 to-success-600 rounded-2xl flex items-center justify-center mr-4 shadow-soft">
-                <Package className="w-6 h-6 text-white" />
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-success-500/10 via-success-600/5 to-success-700/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+          <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl border border-success-200/20 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-700 overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-success-400/5 to-success-600/3 rounded-full -translate-y-20 translate-x-20"></div>
+            <div className="relative z-10 p-8 border-b border-success-200/30">
+              <div className="flex items-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-success-500 via-success-600 to-success-700 rounded-2xl flex items-center justify-center mr-5 shadow-xl">
+                  <Package className="w-7 h-7 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-display font-bold bg-gradient-to-r from-success-700 to-success-900 bg-clip-text text-transparent">최근 주문</h3>
+                  <p className="text-sm text-secondary-600 font-medium">실시간 주문 현황</p>
+                </div>
               </div>
-              <h3 className="text-2xl font-display font-bold text-secondary-900">최근 주문</h3>
+            </div>
+            <div className="relative z-10 overflow-x-auto">
+              <div className="inline-block min-w-full align-middle">
+                <table className="min-w-full">
+                  <thead className="bg-gradient-to-r from-secondary-50/80 to-secondary-100/60 backdrop-blur-sm">
+                    <tr>
+                      <th className="px-8 py-5 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">주문번호</th>
+                      <th className="px-8 py-5 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">고객사</th>
+                      <th className="px-8 py-5 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">금액</th>
+                      <th className="px-8 py-5 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">상태</th>
+                      <th className="px-8 py-5 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">날짜</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-secondary-200/20">
+                    {recentOrders.map((order, index) => (
+                      <tr key={order.id} className="hover:bg-gradient-to-r hover:from-secondary-50/50 hover:to-transparent transition-all duration-300 group/row">
+                        <td className="px-8 py-6 whitespace-nowrap text-sm font-display font-bold text-secondary-900 group-hover/row:text-primary-700 transition-colors">{order.id}</td>
+                        <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-700 font-medium group-hover/row:text-secondary-900 transition-colors">{order.customer}</td>
+                        <td className="px-8 py-6 whitespace-nowrap text-sm font-semibold text-secondary-900 group-hover/row:text-success-700 transition-colors">{order.amount}</td>
+                        <td className="px-8 py-6 whitespace-nowrap">
+                          <span className={`inline-flex px-4 py-2 text-xs font-display font-bold rounded-full border-2 transition-all duration-300 ${getStatusColor(order.status)} group-hover/row:scale-105`}>
+                            {order.status}
+                          </span>
+                        </td>
+                        <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-600 font-medium group-hover/row:text-secondary-800 transition-colors">{order.date}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-          <div className="overflow-x-auto -mx-2 sm:mx-0">
-            <div className="inline-block min-w-full align-middle">
-              <table className="min-w-full">
-                <thead className="bg-secondary-50/50">
-                  <tr>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">주문번호</th>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">고객사</th>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">금액</th>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">상태</th>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">날짜</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-secondary-200/30">
-                  {recentOrders.map((order) => (
-                    <tr key={order.id} className="hover:bg-secondary-50/30 transition-colors">
-                      <td className="px-8 py-6 whitespace-nowrap text-sm font-display font-bold text-secondary-900">{order.id}</td>
-                      <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-700">{order.customer}</td>
-                      <td className="px-8 py-6 whitespace-nowrap text-sm font-medium text-secondary-900">{order.amount}</td>
-                      <td className="px-8 py-6 whitespace-nowrap">
-                        <span className={`inline-flex px-3 py-1 text-xs font-display font-bold rounded-full ${getStatusColor(order.status)}`}>
-                          {order.status}
-                        </span>
-                      </td>
-                      <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-600">{order.date}</td>
-                    </tr>
-                  ))}
+        </div>
                 </tbody>
               </table>
             </div>
@@ -266,22 +367,38 @@ const Dashboard = () => {
         </div>
 
         {/* 알림 센터 */}
-        <div className="card animate-fade-in-up delay-800">
-          <div className="p-8 border-b border-secondary-200/50 flex items-center justify-between">
-            <div className="flex items-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-warning-400 to-warning-600 rounded-2xl flex items-center justify-center mr-4 shadow-soft">
-                <Bell className="w-6 h-6 text-white" />
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-warning-500/10 via-warning-600/5 to-warning-700/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+          <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl border border-warning-200/20 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-800 overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-warning-400/5 to-warning-600/3 rounded-full -translate-y-20 translate-x-20"></div>
+            <div className="relative z-10 p-8 border-b border-warning-200/30 flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-warning-500 via-warning-600 to-warning-700 rounded-2xl flex items-center justify-center mr-5 shadow-xl">
+                  <Bell className="w-7 h-7 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-display font-bold bg-gradient-to-r from-warning-700 to-warning-900 bg-clip-text text-transparent">알림 센터</h3>
+                  <p className="text-sm text-secondary-600 font-medium">중요 알림 및 업데이트</p>
+                </div>
               </div>
-              <h3 className="text-2xl font-display font-bold text-secondary-900">알림 센터</h3>
+              <div className="w-10 h-10 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-xl flex items-center justify-center shadow-lg">
+                <Shield className="w-5 h-5 text-white drop-shadow-sm" strokeWidth={2} />
+              </div>
             </div>
-            <Shield className="w-5 h-5 text-secondary-400" />
+            <div className="relative z-10 divide-y divide-secondary-200/20">
+              {notifications.map((notification, index) => (
+                <div key={notification.id} className={`p-6 border-l-4 ${getNotificationColor(notification.type)} hover:bg-gradient-to-r hover:from-secondary-50/30 hover:to-transparent transition-all duration-300 group/notification cursor-pointer`}>
+                  <p className="text-sm font-semibold text-secondary-900 leading-relaxed break-words group-hover/notification:text-secondary-800 transition-colors">{notification.message}</p>
+                  <p className="text-xs text-secondary-600 mt-3 flex items-center font-medium">
+                    <Sparkles className="w-4 h-4 mr-2 text-accent-500" strokeWidth={2} />
+                    {notification.time}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="divide-y divide-secondary-200/30">
-            {notifications.map((notification) => (
-              <div key={notification.id} className={`p-6 border-l-4 ${getNotificationColor(notification.type)} hover:bg-secondary-50/30 transition-colors`}>
-                <p className="text-sm font-medium text-secondary-900 leading-relaxed break-words">{notification.message}</p>
-                <p className="text-xs text-secondary-500 mt-2 flex items-center">
-                  <Sparkles className="w-3 h-3 mr-1" />
+        </div>
+      </div>
                   {notification.time}
                 </p>
               </div>

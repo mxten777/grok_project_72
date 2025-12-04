@@ -202,52 +202,64 @@ const InventoryManagement = () => {
       </div>
 
       {/* Inventory Table */}
-      <div className="card animate-fade-in-up delay-500">
-        <div className="p-8 border-b border-secondary-200/50">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Shield className="w-6 h-6 text-primary-600 mr-3" />
-              <h2 className="text-2xl admin-heading">재고 목록</h2>
-            </div>
-            <div className="text-sm text-secondary-600">
-              총 {filteredProducts.length}개 상품
+      <div className="relative group">
+        <div className="absolute inset-0 bg-gradient-to-br from-success-500/10 via-success-600/5 to-success-700/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+        <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl border border-success-200/20 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-500 overflow-hidden">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-success-400/5 to-success-600/3 rounded-full -translate-y-20 translate-x-20"></div>
+          <div className="relative z-10 p-8 border-b border-success-200/30">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-success-500 via-success-600 to-success-700 rounded-2xl flex items-center justify-center mr-5 shadow-xl">
+                  <Shield className="w-7 h-7 text-white drop-shadow-sm" strokeWidth={2} />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-display font-bold bg-gradient-to-r from-success-700 to-success-900 bg-clip-text text-transparent">재고 목록</h2>
+                  <p className="text-sm text-secondary-600 font-medium">실시간 재고 관리 시스템</p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-r from-success-50 to-success-100 px-4 py-2 rounded-full border border-success-200/50">
+                <div className="text-sm font-semibold text-success-700">
+                  총 {filteredProducts.length}개 상품
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-secondary-200/30">
-            <thead className="bg-secondary-50/50">
-              <tr>
-                <th className="px-8 py-6 text-left admin-table-header">상품</th>
-                <th className="px-8 py-6 text-left admin-table-header">카테고리</th>
-                <th className="px-8 py-6 text-left admin-table-header">현재 재고</th>
-                <th className="px-8 py-6 text-left admin-table-header">재고 수정</th>
-                <th className="px-8 py-6 text-left admin-table-header">이력</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-secondary-200/30">
-              {loading ? (
+          <div className="relative z-10 overflow-x-auto">
+            <table className="min-w-full divide-y divide-secondary-200/20">
+              <thead className="bg-gradient-to-r from-secondary-50/80 to-secondary-100/60 backdrop-blur-sm">
                 <tr>
-                  <td colSpan={5} className="text-center py-16">
-                    <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
-                      <span className="ml-3 text-secondary-600">로딩 중...</span>
-                    </div>
-                  </td>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">상품</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">카테고리</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">현재 재고</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">재고 수정</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">이력</th>
                 </tr>
-              ) : filteredProducts.length > 0 ? (
-                filteredProducts.map((product, index) => (
-                  <tr
-                    key={product.id}
-                    className={`hover:bg-secondary-50/30 transition-all duration-200 animate-fade-in-up ${product.stock < LOW_STOCK_THRESHOLD ? 'bg-error-50/30' : ''}`}
-                    style={{animationDelay: `${index * 50}ms`}}
-                  >
-                    <td className="px-8 py-6 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center shadow-soft">
-                          <Package className="h-6 w-6 text-primary-600" />
+              </thead>
+              <tbody className="divide-y divide-secondary-200/20">
+                {loading ? (
+                  <tr>
+                    <td colSpan={5} className="text-center py-20">
+                      <div className="flex items-center justify-center">
+                        <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-xl animate-pulse">
+                          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
                         </div>
+                        <span className="ml-4 text-secondary-600 font-semibold">로딩 중...</span>
+                      </div>
+                    </td>
+                  </tr>
+                ) : filteredProducts.length > 0 ? (
+                  filteredProducts.map((product, index) => (
+                    <tr
+                      key={product.id}
+                      className={`hover:bg-gradient-to-r hover:from-secondary-50/50 hover:to-transparent transition-all duration-300 group/row animate-fade-in-up ${product.stock < LOW_STOCK_THRESHOLD ? 'bg-gradient-to-r from-error-50/30 to-transparent' : ''}`}
+                      style={{animationDelay: `${index * 50}ms`}}
+                    >
+                      <td className="px-8 py-6 whitespace-nowrap">
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center shadow-soft group-hover/row:shadow-md transition-shadow">
+                            <Package className="h-6 w-6 text-primary-600" strokeWidth={2} />
+                          </div>
                         <div className="ml-4">
                           <div className="admin-table-cell text-sm font-bold">{product.name}</div>
                         </div>

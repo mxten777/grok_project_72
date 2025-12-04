@@ -194,20 +194,24 @@ const PriceManagement = () => {
         </div>
       </div>
 
-      <div className="bg-white shadow-md rounded-lg overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left admin-table-header">정책명</th>
-              <th className="px-6 py-3 text-left admin-table-header">유형</th>
-              <th className="px-6 py-3 text-left admin-table-header">할인값</th>
-              <th className="px-6 py-3 text-left admin-table-header">적용 범위</th>
-              <th className="px-6 py-3 text-left admin-table-header">기간</th>
-              <th className="px-6 py-3 text-left admin-table-header">상태</th>
-              <th className="px-6 py-3 text-right admin-table-header">관리</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+      <div className="relative group">
+        <div className="absolute inset-0 bg-gradient-to-br from-warning-500/10 via-warning-600/5 to-warning-700/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+        <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl border border-warning-200/20 shadow-2xl hover:shadow-3xl overflow-hidden">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-warning-400/5 to-warning-600/3 rounded-full -translate-y-20 translate-x-20"></div>
+          <div className="relative z-10 overflow-x-auto">
+            <table className="min-w-full divide-y divide-secondary-200/20">
+              <thead className="bg-gradient-to-r from-secondary-50/80 to-secondary-100/60 backdrop-blur-sm">
+                <tr>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">정책명</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">유형</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">할인값</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">적용 범위</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">기간</th>
+                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">상태</th>
+                  <th className="px-8 py-6 text-right text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">관리</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white/50 backdrop-blur-sm divide-y divide-secondary-200/20">
             {loading ? (
               <tr><td colSpan={7} className="text-center py-4">로딩 중...</td></tr>
             ) : rules.map(rule => (

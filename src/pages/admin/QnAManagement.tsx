@@ -179,25 +179,34 @@ const QnAManagement: React.FC = () => {
         </div>
       </div>
       
-      <div className="bg-white p-8 rounded-lg shadow-md">
-        {loading ? (
-          <p>데이터를 불러오는 중입니다...</p>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th scope="col" className="px-6 py-3 text-left admin-table-header">상품명</th>
-                  <th scope="col" className="px-6 py-3 text-left admin-table-header">작성자</th>
-                  <th scope="col" className="px-6 py-3 text-left admin-table-header">질문</th>
-                  <th scope="col" className="px-6 py-3 text-left admin-table-header">작성일</th>
-                  <th scope="col" className="px-6 py-3 text-left admin-table-header">상태</th>
-                  <th scope="col" className="px-6 py-3 text-left admin-table-header">관리</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {questions.map((q) => (
-                  <tr key={q.id}>
+      <div className="relative group">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-500/10 via-accent-600/5 to-accent-700/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+        <div className="relative bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-accent-200/20 shadow-2xl hover:shadow-3xl overflow-hidden">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-accent-400/5 to-accent-600/3 rounded-full -translate-y-20 translate-x-20"></div>
+          <div className="relative z-10">
+            {loading ? (
+              <div className="text-center py-20">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-xl animate-pulse mx-auto mb-4">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+                </div>
+                <p className="text-secondary-600 font-semibold">데이터를 불러오는 중입니다...</p>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-secondary-200/20">
+                  <thead className="bg-gradient-to-r from-secondary-50/80 to-secondary-100/60 backdrop-blur-sm">
+                    <tr>
+                      <th scope="col" className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">상품명</th>
+                      <th scope="col" className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">작성자</th>
+                      <th scope="col" className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">질문</th>
+                      <th scope="col" className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">작성일</th>
+                      <th scope="col" className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">상태</th>
+                      <th scope="col" className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">관리</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white/50 backdrop-blur-sm divide-y divide-secondary-200/20">
+                    {questions.map((q) => (
+                      <tr key={q.id} className="hover:bg-gradient-to-r hover:from-secondary-50/50 hover:to-transparent transition-all duration-300 group/row">
                     <td className="px-6 py-4 whitespace-nowrap admin-table-cell font-medium text-gray-900">{productMap[q.productId] || '알 수 없는 상품'}</td>
                     <td className="px-6 py-4 whitespace-nowrap admin-body text-gray-500">{q.userDisplayName}</td>
                     <td className="px-6 py-4 whitespace-nowrap admin-body text-gray-500 truncate max-w-xs">{q.question}</td>
