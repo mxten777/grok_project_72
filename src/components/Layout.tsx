@@ -64,10 +64,10 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                   <Package className="h-7 w-7 lg:h-8 lg:w-8 text-white drop-shadow-sm" strokeWidth={2} />
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-2xl lg:text-3xl font-display font-bold bg-gradient-to-r from-primary-700 via-primary-800 to-primary-900 bg-clip-text text-transparent drop-shadow-sm">
+                  <h1 className="text-xl lg:text-2xl font-display font-bold bg-gradient-to-r from-primary-700 via-primary-800 to-primary-900 bg-clip-text text-transparent drop-shadow-sm whitespace-nowrap">
                     한국코프론
                   </h1>
-                  <p className="text-sm text-secondary-600 font-medium -mt-1 tracking-wide">스마트 유통 플랫폼</p>
+                  <p className="text-xs lg:text-sm text-secondary-600 font-medium -mt-1 tracking-wide whitespace-nowrap">스마트 유통 플랫폼</p>
                 </div>
               </Link>
             </div>
