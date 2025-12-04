@@ -14,9 +14,86 @@ const OrderManagement = () => {
     const fetchOrders = async () => {
       try {
         const allOrders = await getOrders();
-        setOrders(allOrders);
+        // 더미 데이터 추가 (실제 데이터가 없을 경우)
+        const mockOrders: Order[] = [
+          {
+            id: 'ORD-2025-001',
+            userId: '김철수 (cheolsu@example.com)',
+            items: [
+              { productId: 'prod-001', name: '에어컨 냉매 R-410A', quantity: 5, price: 45000 },
+              { productId: 'prod-002', name: '냉매 충전기', quantity: 1, price: 120000 }
+            ],
+            totalAmount: 345000,
+            status: 'pending',
+            createdAt: new Date('2025-12-01'),
+            shippingAddress: '서울시 강남구 테헤란로 123'
+          },
+          {
+            id: 'ORD-2025-002',
+            userId: '박영희 (younghee@example.com)',
+            items: [
+              { productId: 'prod-003', name: '에어컨 필터 세트', quantity: 10, price: 25000 },
+              { productId: 'prod-004', name: '배관 클리너', quantity: 3, price: 35000 }
+            ],
+            totalAmount: 395000,
+            status: 'approved',
+            createdAt: new Date('2025-12-02'),
+            shippingAddress: '부산시 해운대구 센텀동 456'
+          },
+          {
+            id: 'ORD-2025-003',
+            userId: '이민수 (minsoo@example.com)',
+            items: [
+              { productId: 'prod-005', name: '에어컨 실외기 팬', quantity: 2, price: 85000 },
+              { productId: 'prod-006', name: '온도 센서', quantity: 5, price: 15000 }
+            ],
+            totalAmount: 200000,
+            status: 'shipped',
+            createdAt: new Date('2025-12-03'),
+            shippingAddress: '대구시 중구 동성로 789'
+          },
+          {
+            id: 'ORD-2025-004',
+            userId: '정수진 (soojin@example.com)',
+            items: [
+              { productId: 'prod-007', name: '냉매 R-32', quantity: 8, price: 52000 },
+              { productId: 'prod-008', name: '압력 게이지', quantity: 2, price: 45000 }
+            ],
+            totalAmount: 514000,
+            status: 'delivered',
+            createdAt: new Date('2025-12-04'),
+            shippingAddress: '인천시 남동구 구월동 101'
+          },
+          {
+            id: 'ORD-2025-005',
+            userId: '홍길동 (gildong@example.com)',
+            items: [
+              { productId: 'prod-009', name: '에어컨 드레인 호스', quantity: 15, price: 8000 },
+              { productId: 'prod-010', name: '단열 테이프', quantity: 20, price: 3000 }
+            ],
+            totalAmount: 190000,
+            status: 'cancelled',
+            createdAt: new Date('2025-12-05'),
+            shippingAddress: '광주시 서구 치평동 202'
+          }
+        ];
+        setOrders(allOrders.length > 0 ? allOrders : mockOrders);
       } catch (error) {
         console.error('주문 조회 실패:', error);
+        // 에러 시에도 더미 데이터 표시
+        setOrders([
+          {
+            id: 'ORD-2025-001',
+            userId: '김철수 (cheolsu@example.com)',
+            items: [
+              { productId: 'prod-001', name: '에어컨 냉매 R-410A', quantity: 5, price: 45000 }
+            ],
+            totalAmount: 225000,
+            status: 'pending',
+            createdAt: new Date('2025-12-01'),
+            shippingAddress: '서울시 강남구'
+          }
+        ]);
       }
     };
 

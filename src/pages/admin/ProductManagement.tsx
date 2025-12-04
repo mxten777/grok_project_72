@@ -22,10 +22,32 @@ const ProductManagement = () => {
     setLoading(true);
     try {
       const products = await getProducts();
-      setProducts(products);
+      // 더미 데이터 추가 (실제 데이터가 없을 경우)
+      const mockProducts: Product[] = [
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매 가스', imageUrl: '', createdAt: new Date('2025-01-01') },
+        { id: 'prod-002', name: '냉매 충전기 PRO-2000', category: '장비', price: 120000, stock: 25, description: '자동 냉매 충전 및 회수 장비', imageUrl: '', createdAt: new Date('2025-01-02') },
+        { id: 'prod-003', name: '에어컨 필터 세트 (10개입)', category: '부품', price: 25000, stock: 80, description: '표준 크기 에어컨 필터 교체 세트', imageUrl: '', createdAt: new Date('2025-01-03') },
+        { id: 'prod-004', name: '배관 클리너 슈퍼', category: '부품', price: 35000, stock: 45, description: '강력한 에어컨 배관 세정제', imageUrl: '', createdAt: new Date('2025-01-04') },
+        { id: 'prod-005', name: '에어컨 실외기 팬 모터', category: '부품', price: 85000, stock: 12, description: '고용량 실외기용 팬 모터', imageUrl: '', createdAt: new Date('2025-01-05') },
+        { id: 'prod-006', name: '디지털 온도 센서', category: '부품', price: 15000, stock: 200, description: '정밀 온도 감지 및 제어 센서', imageUrl: '', createdAt: new Date('2025-01-06') },
+        { id: 'prod-007', name: '친환경 냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '저전력 친환경 냉매 가스', imageUrl: '', createdAt: new Date('2025-01-07') },
+        { id: 'prod-008', name: '디지털 압력 게이지', category: '장비', price: 45000, stock: 35, description: '고정밀 압력 측정 장비', imageUrl: '', createdAt: new Date('2025-01-08') },
+        { id: 'prod-009', name: '에어컨 드레인 호스 (5m)', category: '부품', price: 8000, stock: 120, description: '내구성 좋은 배수 호스', imageUrl: '', createdAt: new Date('2025-01-09') },
+        { id: 'prod-010', name: '배관 단열 테이프', category: '부품', price: 3000, stock: 300, description: '고품질 단열 테이프 10m', imageUrl: '', createdAt: new Date('2025-01-10') },
+        { id: 'prod-011', name: '컴프레서 윤활유', category: '부품', price: 28000, stock: 8, description: '에어컨 컴프레서 전용 윤활유', imageUrl: '', createdAt: new Date('2025-01-11') },
+        { id: 'prod-012', name: '고진공 배기 펌프', category: '장비', price: 180000, stock: 5, description: '산업용 고진공 배기 장비', imageUrl: '', createdAt: new Date('2025-01-12') },
+        { id: 'prod-013', name: '에어컨 리모컨 세트', category: '부품', price: 12000, stock: 150, description: '범용 에어컨 리모컨', imageUrl: '', createdAt: new Date('2025-01-13') },
+        { id: 'prod-014', name: '냉매 누출 탐지제', category: '부품', price: 18000, stock: 90, description: '냉매 누출 감지 용액', imageUrl: '', createdAt: new Date('2025-01-14') },
+        { id: 'prod-015', name: '에어컨 케이블 세트', category: '부품', price: 22000, stock: 75, description: '에어컨 배선 케이블 모음', imageUrl: '', createdAt: new Date('2025-01-15') }
+      ];
+      setProducts(products.length > 0 ? products : mockProducts);
     } catch (err) {
       toast.error('상품 목록을 불러오는 데 실패했습니다.');
       console.error(err);
+      // 에러 시에도 더미 데이터 표시
+      setProducts([
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '', createdAt: new Date() }
+      ]);
     } finally {
       setLoading(false);
     }

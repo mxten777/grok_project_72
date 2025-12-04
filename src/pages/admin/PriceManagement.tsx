@@ -23,10 +23,89 @@ const PriceManagement = () => {
         getPriceRules(),
         getProducts(),
       ]);
-      setRules(rulesData.sort((a, b) => (b.createdAt as Timestamp).toMillis() - (a.createdAt as Timestamp).toMillis()));
-      setProducts(productsData);
+      // 더미 데이터 추가 (실제 데이터가 없을 경우)
+      const mockRules: PriceRule[] = [
+        {
+          id: 'rule-001',
+          name: '겨울 성수기 할인',
+          type: 'percentage',
+          value: 15,
+          targetType: 'category',
+          targetId: '냉매가스',
+          startDate: Timestamp.fromDate(new Date('2025-12-01')),
+          endDate: Timestamp.fromDate(new Date('2026-02-28')),
+          isExclusive: false,
+          priority: 1,
+          createdAt: Timestamp.fromDate(new Date('2025-11-15'))
+        },
+        {
+          id: 'rule-002',
+          name: '신제품 출시 할인',
+          type: 'fixed',
+          value: 10000,
+          targetType: 'product',
+          targetId: 'prod-002',
+          startDate: Timestamp.fromDate(new Date('2025-12-01')),
+          endDate: Timestamp.fromDate(new Date('2025-12-31')),
+          isExclusive: true,
+          priority: 2,
+          createdAt: Timestamp.fromDate(new Date('2025-11-20'))
+        },
+        {
+          id: 'rule-003',
+          name: '대량 구매 할인',
+          type: 'percentage',
+          value: 20,
+          targetType: 'all',
+          targetId: '',
+          startDate: Timestamp.fromDate(new Date('2025-12-01')),
+          endDate: null,
+          isExclusive: false,
+          priority: 3,
+          createdAt: Timestamp.fromDate(new Date('2025-11-25'))
+        },
+        {
+          id: 'rule-004',
+          name: '특별 프로모션 가격',
+          type: 'set',
+          value: 30000,
+          targetType: 'product',
+          targetId: 'prod-007',
+          startDate: Timestamp.fromDate(new Date('2025-12-15')),
+          endDate: Timestamp.fromDate(new Date('2025-12-25')),
+          isExclusive: true,
+          priority: 4,
+          createdAt: Timestamp.fromDate(new Date('2025-12-01'))
+        }
+      ];
+      const mockProducts: Product[] = [
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '', imageUrl: '', createdAt: new Date() },
+        { id: 'prod-002', name: '냉매 충전기 PRO-2000', category: '장비', price: 120000, stock: 25, description: '', imageUrl: '', createdAt: new Date() },
+        { id: 'prod-007', name: '친환경 냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '', imageUrl: '', createdAt: new Date() }
+      ];
+      setRules((rulesData.length > 0 ? rulesData : mockRules).sort((a, b) => (b.createdAt as Timestamp).toMillis() - (a.createdAt as Timestamp).toMillis()));
+      setProducts(productsData.length > 0 ? productsData : mockProducts);
     } catch {
       toast.error('데이터를 불러오는 데 실패했습니다.');
+      // 에러 시에도 더미 데이터 표시
+      setRules([
+        {
+          id: 'rule-001',
+          name: '겨울 성수기 할인',
+          type: 'percentage',
+          value: 15,
+          targetType: 'category',
+          targetId: '냉매가스',
+          startDate: Timestamp.fromDate(new Date('2025-12-01')),
+          endDate: Timestamp.fromDate(new Date('2026-02-28')),
+          isExclusive: false,
+          priority: 1,
+          createdAt: Timestamp.fromDate(new Date('2025-11-15'))
+        }
+      ]);
+      setProducts([
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '', imageUrl: '', createdAt: new Date() }
+      ]);
     } finally {
       setLoading(false);
     }

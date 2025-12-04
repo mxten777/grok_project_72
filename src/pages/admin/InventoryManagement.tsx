@@ -26,10 +26,29 @@ const InventoryManagement = () => {
     setLoading(true);
     try {
       const productsData = await getProducts();
-      setProducts(productsData.sort((a, b) => a.stock - b.stock));
+      // 더미 데이터 추가 (실제 데이터가 없을 경우)
+      const mockProducts: Product[] = [
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '' },
+        { id: 'prod-002', name: '냉매 충전기', category: '장비', price: 120000, stock: 25, description: '자동 냉매 충전 장비', imageUrl: '' },
+        { id: 'prod-003', name: '에어컨 필터 세트', category: '부품', price: 25000, stock: 80, description: '표준 필터 교체 세트', imageUrl: '' },
+        { id: 'prod-004', name: '배관 클리너', category: '부품', price: 35000, stock: 45, description: '에어컨 배관 세정제', imageUrl: '' },
+        { id: 'prod-005', name: '에어컨 실외기 팬', category: '부품', price: 85000, stock: 12, description: '고용량 실외기 팬 모터', imageUrl: '' },
+        { id: 'prod-006', name: '온도 센서', category: '부품', price: 15000, stock: 200, description: '정밀 온도 감지 센서', imageUrl: '' },
+        { id: 'prod-007', name: '냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '친환경 냉매 R-32', imageUrl: '' },
+        { id: 'prod-008', name: '압력 게이지', category: '장비', price: 45000, stock: 35, description: '디지털 압력 측정기', imageUrl: '' },
+        { id: 'prod-009', name: '에어컨 드레인 호스', category: '부품', price: 8000, stock: 120, description: '배수 호스 5m', imageUrl: '' },
+        { id: 'prod-010', name: '단열 테이프', category: '부품', price: 3000, stock: 300, description: '배관 단열 테이프', imageUrl: '' },
+        { id: 'prod-011', name: '컴프레서 오일', category: '부품', price: 28000, stock: 8, description: '에어컨 컴프레서 윤활유', imageUrl: '' },
+        { id: 'prod-012', name: '진공 펌프', category: '장비', price: 180000, stock: 5, description: '고진공 배기 펌프', imageUrl: '' }
+      ];
+      setProducts((productsData.length > 0 ? productsData : mockProducts).sort((a, b) => a.stock - b.stock));
     } catch (err) {
       toast.error('재고 목록을 불러오는 데 실패했습니다.');
       console.error(err);
+      // 에러 시에도 더미 데이터 표시
+      setProducts([
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '' }
+      ]);
     } finally {
       setLoading(false);
     }

@@ -18,12 +18,80 @@ const QnAManagement: React.FC = () => {
         getProductQuestions(),
         getProducts(),
       ]);
-      
+
+      // 더미 데이터 추가 (실제 데이터가 없을 경우)
+      const mockQuestions: ProductQuestion[] = [
+        {
+          id: 'q-001',
+          productId: 'prod-001',
+          userId: 'user-001',
+          userDisplayName: '김철수',
+          question: '이 냉매의 호환성은 어떻게 되나요? 기존 에어컨에 사용할 수 있나요?',
+          answer: '네, R-410A는 대부분의 현대 에어컨과 호환됩니다. 구형 모델의 경우 호환성을 확인해주세요.',
+          isAnswered: true,
+          createdAt: new Date('2025-12-01T10:30:00'),
+          answeredAt: new Date('2025-12-01T14:15:00')
+        },
+        {
+          id: 'q-002',
+          productId: 'prod-002',
+          userId: 'user-002',
+          userDisplayName: '박영희',
+          question: '충전기 사용법에 대한 매뉴얼이 있나요?',
+          answer: '',
+          isAnswered: false,
+          createdAt: new Date('2025-12-02T09:45:00'),
+          answeredAt: null
+        },
+        {
+          id: 'q-003',
+          productId: 'prod-005',
+          userId: 'user-003',
+          userDisplayName: '이민수',
+          question: '팬 모터의 소음 수준은 어느 정도인가요?',
+          answer: '저소음 설계로 일반 가정용 에어컨 수준의 소음을 유지합니다.',
+          isAnswered: true,
+          createdAt: new Date('2025-12-03T16:20:00'),
+          answeredAt: new Date('2025-12-03T17:30:00')
+        },
+        {
+          id: 'q-004',
+          productId: 'prod-007',
+          userId: 'user-004',
+          userDisplayName: '정수진',
+          question: 'R-32 냉매의 장점은 무엇인가요?',
+          answer: 'R-32는 친환경 냉매로 에너지 효율이 높고 온실가스 배출이 적습니다.',
+          isAnswered: true,
+          createdAt: new Date('2025-12-04T11:15:00'),
+          answeredAt: new Date('2025-12-04T13:45:00')
+        },
+        {
+          id: 'q-005',
+          productId: 'prod-012',
+          userId: 'user-005',
+          userDisplayName: '홍길동',
+          question: '배기 펌프의 유지보수 주기는 어떻게 되나요?',
+          answer: '',
+          isAnswered: false,
+          createdAt: new Date('2025-12-05T08:30:00'),
+          answeredAt: null
+        }
+      ];
+      const mockProducts: Product[] = [
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '', imageUrl: '', createdAt: new Date() },
+        { id: 'prod-002', name: '냉매 충전기 PRO-2000', category: '장비', price: 120000, stock: 25, description: '', imageUrl: '', createdAt: new Date() },
+        { id: 'prod-005', name: '에어컨 실외기 팬 모터', category: '부품', price: 85000, stock: 12, description: '', imageUrl: '', createdAt: new Date() },
+        { id: 'prod-007', name: '친환경 냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '', imageUrl: '', createdAt: new Date() },
+        { id: 'prod-012', name: '고진공 배기 펌프', category: '장비', price: 180000, stock: 5, description: '', imageUrl: '', createdAt: new Date() }
+      ];
+
       // Sort questions by creation date, newest first
-      const sortedQuestions = fetchedQuestions.sort((a, b) => b.createdAt.toDate().getTime() - a.createdAt.toDate().getTime());
+      const allQuestions = fetchedQuestions.length > 0 ? fetchedQuestions : mockQuestions;
+      const sortedQuestions = allQuestions.sort((a, b) => b.createdAt.toDate().getTime() - a.createdAt.toDate().getTime());
       setQuestions(sortedQuestions);
 
-      const newProductMap = fetchedProducts.reduce((acc, product) => {
+      const allProducts = fetchedProducts.length > 0 ? fetchedProducts : mockProducts;
+      const newProductMap = allProducts.reduce((acc, product) => {
         acc[product.id] = product.name;
         return acc;
       }, {} as Record<string, string>);
@@ -32,6 +100,21 @@ const QnAManagement: React.FC = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
       toast.error('데이터를 불러오는 중 오류가 발생했습니다.');
+      // 에러 시에도 더미 데이터 표시
+      setQuestions([
+        {
+          id: 'q-001',
+          productId: 'prod-001',
+          userId: 'user-001',
+          userDisplayName: '김철수',
+          question: '이 냉매의 호환성은 어떻게 되나요?',
+          answer: '네, R-410A는 대부분의 현대 에어컨과 호환됩니다.',
+          isAnswered: true,
+          createdAt: new Date('2025-12-01T10:30:00'),
+          answeredAt: new Date('2025-12-01T14:15:00')
+        }
+      ]);
+      setProductMap({ 'prod-001': '에어컨 냉매 R-410A' });
     } finally {
       setLoading(false);
     }
