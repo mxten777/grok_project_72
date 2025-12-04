@@ -113,7 +113,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
               <div className="relative">
                 <button
                   onClick={() => setProfileMenuOpen(!isProfileMenuOpen)}
-                  className="flex items-center space-x-2 p-2 rounded-xl bg-gradient-to-r from-emerald-500 to-rose-500 text-white hover:from-emerald-600 hover:to-rose-600 transition-all duration-200 hover:scale-105 border border-emerald-400 shadow-lg hover:shadow-xl font-medium"
+                  className="flex items-center space-x-2 p-2 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-700 hover:to-primary-800 transition-all duration-200 hover:scale-105 border-2 border-primary-500 shadow-xl hover:shadow-2xl font-medium ring-2 ring-primary-400/30 hover:ring-primary-500/50"
                 >
                   {user ? (
                     <>
