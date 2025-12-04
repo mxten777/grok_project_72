@@ -97,7 +97,7 @@
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center px-6 py-3 text-secondary-600 hover:text-secondary-900 hover:bg-secondary-100 rounded-xl transform hover:scale-105 active:scale-95 transition-all duration-200;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white text-secondary-700 border border-secondary-200 hover:bg-secondary-50 hover:text-secondary-900 hover:border-secondary-300 rounded-xl transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-soft hover:shadow-medium;
   }
 
   /* Input styles */
