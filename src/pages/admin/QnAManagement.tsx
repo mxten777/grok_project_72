@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { getProductQuestions, answerProductQuestion, getProducts } from '../../utils/firestore';
 import type { ProductQuestion, Product } from '../../types';
 import { toast } from 'react-hot-toast';
-import { format } from 'date-fns';
+import { Package, Sparkles } from 'lucide-react';
 import { Timestamp } from 'firebase/firestore';
 
 const QnAManagement: React.FC = () => {

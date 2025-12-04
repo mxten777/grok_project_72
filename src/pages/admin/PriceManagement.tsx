@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getPriceRules, addPriceRule, updatePriceRule, deletePriceRule, getProducts } from '../../utils/firestore';
 import type { PriceRule, Product } from '../../types';
-import { Plus, Edit, Trash2, X } from 'lucide-react';
+import { Plus, Edit, Trash2, X, Package, Sparkles } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { Timestamp } from 'firebase/firestore';
 
