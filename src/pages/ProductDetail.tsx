@@ -154,7 +154,7 @@ const ProductDetail = () => {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-        <Frown className="h-20 w-20 text-secondary-300 mx-auto mb-6" />
+        <Frown className="h-20 w-20 text-secondary-300 mx-auto mb-6" strokeWidth={2} />
         <h3 className="text-2xl font-display font-bold text-secondary-900 mb-2">
           오류가 발생했습니다
         </h3>
@@ -190,9 +190,9 @@ const ProductDetail = () => {
       {/* Breadcrumb */}
       <nav className="flex mb-8 text-sm text-secondary-600 animate-fade-in-up">
         <Link to="/" className="hover:text-primary-600 transition-colors">홈</Link>
-        <ChevronRight className="h-4 w-4 mx-2" />
+        <ChevronRight className="h-4 w-4 mx-2" strokeWidth={2} />
         <Link to="/products" className="hover:text-primary-600 transition-colors">상품</Link>
-        <ChevronRight className="h-4 w-4 mx-2" />
+        <ChevronRight className="h-4 w-4 mx-2" strokeWidth={2} />
         <span className="text-secondary-900 font-medium">{product.name}</span>
       </nav>
 
@@ -279,10 +279,10 @@ const ProductDetail = () => {
                       : 'text-secondary-400 hover:text-error-500 hover:bg-error-50'
                   }`}
                 >
-                  <Heart className={`h-6 w-6 ${isWishlisted ? 'fill-current' : ''}`} />
+                  <Heart className={`h-6 w-6 ${isWishlisted ? 'fill-current' : ''}`} strokeWidth={2} />
                 </button>
                 <button className="p-3 rounded-2xl text-secondary-400 hover:text-secondary-600 hover:bg-secondary-100 transition-all duration-200">
-                  <Share2 className="h-6 w-6" />
+                  <Share2 className="h-6 w-6" strokeWidth={2} />
                 </button>
               </div>
             </div>
@@ -295,7 +295,7 @@ const ProductDetail = () => {
             <div className="flex items-center mb-6">
               <div className="flex items-center mr-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-accent-400 fill-current" />
+                  <Star key={i} className="h-5 w-5 text-accent-400 fill-current" strokeWidth={2} />
                 ))}
               </div>
               <span className="text-secondary-600 font-medium">(4.8)</span>
@@ -335,7 +335,7 @@ const ProductDetail = () => {
                   className="p-4 hover:bg-secondary-100 rounded-l-2xl transition-colors disabled:opacity-50"
                   disabled={quantity <= 1}
                 >
-                  <ChevronLeft className="h-5 w-5" />
+                  <ChevronLeft className="h-5 w-5" strokeWidth={2} />
                 </button>
                 <span className="px-6 py-4 font-bold text-lg min-w-[60px] text-center">{quantity}</span>
                 <button
@@ -343,7 +343,7 @@ const ProductDetail = () => {
                   className="p-4 hover:bg-secondary-100 rounded-r-2xl transition-colors disabled:opacity-50"
                   disabled={quantity >= product.stock}
                 >
-                  <ChevronRight className="h-5 w-5" />
+                  <ChevronRight className="h-5 w-5" strokeWidth={2} />
                 </button>
               </div>
             </div>
@@ -361,7 +361,7 @@ const ProductDetail = () => {
               onClick={handleAddToCart}
               className="w-full btn-primary group text-lg py-5"
             >
-              <ShoppingCart className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <ShoppingCart className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" strokeWidth={2} />
               장바구니에 담기
             </button>
             <button className="w-full btn-secondary group text-lg py-5">
@@ -373,19 +373,19 @@ const ProductDetail = () => {
           <div className="grid grid-cols-3 gap-4 pt-8 border-t border-secondary-200">
             <div className="text-center">
               <div className="w-12 h-12 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
-                <Truck className="h-6 w-6 text-primary-600" />
+                <Truck className="h-6 w-6 text-primary-600" strokeWidth={2} />
               </div>
               <div className="text-sm font-medium text-secondary-900">무료배송</div>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-success-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
-                <Shield className="h-6 w-6 text-success-600" />
+                <Shield className="h-6 w-6 text-success-600" strokeWidth={2} />
               </div>
               <div className="text-sm font-medium text-secondary-900">품질보증</div>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-accent-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
-                <RotateCcw className="h-6 w-6 text-accent-600" />
+                <RotateCcw className="h-6 w-6 text-accent-600" strokeWidth={2} />
               </div>
               <div className="text-sm font-medium text-secondary-900">30일 환불</div>
             </div>
@@ -496,7 +496,7 @@ const ProductDetail = () => {
             onClick={() => setIsInquiryModalOpen(true)}
             className="btn-primary group"
           >
-            <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+            <MessageCircle className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" strokeWidth={2} />
             문의하기
           </button>
         </div>
@@ -554,7 +554,7 @@ const ProductDetail = () => {
           ) : (
             <div className="card p-12 text-center">
               <div className="w-16 h-16 bg-secondary-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="h-8 w-8 text-secondary-400" />
+                <MessageCircle className="h-8 w-8 text-secondary-400" strokeWidth={2} />
               </div>
               <h3 className="text-xl font-bold text-secondary-900 mb-2">아직 문의가 없습니다</h3>
               <p className="text-secondary-600 mb-6">첫 번째 문의를 남겨보세요!</p>
@@ -576,7 +576,7 @@ const ProductDetail = () => {
                 onClick={() => setIsInquiryModalOpen(false)}
                 className="p-2 rounded-xl text-secondary-400 hover:text-secondary-600 hover:bg-secondary-100 transition-all duration-200"
               >
-                <X className="h-6 w-6" />
+                <X className="h-6 w-6" strokeWidth={2} />
               </button>
             </div>
 

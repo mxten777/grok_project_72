@@ -107,7 +107,7 @@ const Products = () => {
       {/* Header */}
       <div className="mb-12 text-center">
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 font-medium text-sm mb-6 animate-fade-in-up">
-          <Package className="mr-2 h-4 w-4" />
+          <Package className="mr-2 h-4 w-4" strokeWidth={2} />
           스마트 유통 플랫폼
         </div>
         <h1 className="text-4xl lg:text-5xl font-display font-bold text-secondary-900 mb-4 animate-fade-in-up delay-100">
@@ -123,7 +123,7 @@ const Products = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Search */}
           <div className="lg:col-span-2 relative">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" strokeWidth={2} />
             <input
               type="text"
               placeholder="상품명으로 검색..."
@@ -135,7 +135,7 @@ const Products = () => {
 
           {/* Category Filter */}
           <div className="relative">
-            <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" />
+            <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" strokeWidth={2} />
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
@@ -149,7 +149,7 @@ const Products = () => {
 
           {/* Sort */}
           <div className="relative">
-            <TrendingUp className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" />
+            <TrendingUp className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-secondary-400" strokeWidth={2} />
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
@@ -166,7 +166,7 @@ const Products = () => {
       {filteredProducts.length === 0 ? (
         <div className="card text-center py-20 animate-fade-in-up">
           <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-3xl flex items-center justify-center">
-            <Frown className="h-12 w-12 text-secondary-400" />
+            <Frown className="h-12 w-12 text-secondary-400" strokeWidth={2} />
           </div>
           <h2 className="text-3xl font-display font-bold text-secondary-900 mb-4">
             검색된 상품이 없습니다
@@ -178,7 +178,7 @@ const Products = () => {
             onClick={() => { setSearchTerm(''); setCategory('전체'); }}
             className="btn-secondary group"
           >
-            <X className="mr-2 h-5 w-5 group-hover:rotate-90 transition-transform duration-200" />
+            <X className="mr-2 h-5 w-5 group-hover:rotate-90 transition-transform duration-200" strokeWidth={2} />
             필터 초기화
           </button>
         </div>
@@ -193,7 +193,7 @@ const Products = () => {
               <Link to={`/products/${product.id}`} className="block">
                 <div className="relative pt-[100%] overflow-hidden rounded-t-2xl bg-gradient-to-br from-primary-50 to-secondary-50">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Package className="h-20 w-20 text-primary-300 group-hover:scale-110 transition-transform duration-300" />
+                    <Package className="h-20 w-20 text-primary-300 group-hover:scale-110 transition-transform duration-300" strokeWidth={2} />
                   </div>
                   {/* Stock Badge */}
                   <div className="absolute top-3 left-3">
@@ -271,7 +271,7 @@ const Products = () => {
                   onClick={() => handleAddToCart(product)}
                   className="w-full btn-primary group/btn"
                 >
-                  <ShoppingCart className="mr-2 h-5 w-5 group-hover/btn:scale-110 transition-transform" />
+                  <ShoppingCart className="mr-2 h-5 w-5 group-hover/btn:scale-110 transition-transform" strokeWidth={2} />
                   장바구니 담기
                 </button>
               </div>

@@ -63,7 +63,7 @@ const Orders = () => {
         <div className="text-center animate-fade-in-up">
           <div className="card p-16 max-w-2xl mx-auto">
             <div className="w-24 h-24 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl flex items-center justify-center mx-auto mb-8 animate-float">
-              <UserX className="h-12 w-12 text-primary-600" />
+              <UserX className="h-12 w-12 text-primary-600" strokeWidth={2} />
             </div>
             <h1 className="text-4xl font-display font-bold text-secondary-900 mb-4">
               로그인이 필요합니다
@@ -76,7 +76,7 @@ const Orders = () => {
               className="btn-primary group text-lg py-4 px-8"
             >
               로그인 페이지로 이동
-              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
             </Link>
           </div>
         </div>
@@ -103,7 +103,7 @@ const Orders = () => {
           <div>
             <h1 className="text-4xl font-display font-bold text-secondary-900 mb-2 flex items-center">
               <div className="w-12 h-12 bg-gradient-primary rounded-2xl flex items-center justify-center mr-4">
-                <Package className="h-7 w-7 text-white" />
+                <Package className="h-7 w-7 text-white" strokeWidth={2} />
               </div>
               주문 내역
             </h1>
@@ -125,7 +125,7 @@ const Orders = () => {
           {/* Search */}
           <div className="flex-1 relative">
             <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-              <Search className="h-6 w-6 text-secondary-400" />
+              <Search className="h-6 w-6 text-secondary-400" strokeWidth={2} />
             </div>
             <input
               type="text"
@@ -139,7 +139,7 @@ const Orders = () => {
           {/* Status Filter */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-              <Filter className="h-6 w-6 text-secondary-500" />
+              <Filter className="h-6 w-6 text-secondary-500" strokeWidth={2} />
               <span className="font-semibold text-secondary-900">상태 필터</span>
             </div>
             <select
@@ -163,7 +163,7 @@ const Orders = () => {
         <div className="text-center animate-fade-in-up delay-200">
           <div className="card p-16 max-w-2xl mx-auto">
             <div className="w-24 h-24 bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-3xl flex items-center justify-center mx-auto mb-8 animate-float">
-              <Inbox className="h-12 w-12 text-secondary-500" />
+              <Inbox className="h-12 w-12 text-secondary-500" strokeWidth={2} />
             </div>
             <h1 className="text-4xl font-display font-bold text-secondary-900 mb-4">
               {searchQuery || filterStatus !== 'all' ? '검색된 주문이 없습니다' : '아직 주문 내역이 없습니다'}
@@ -177,9 +177,9 @@ const Orders = () => {
               to="/products"
               className="btn-primary group text-lg py-4 px-8"
             >
-              <Package className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <Package className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" strokeWidth={2} />
               상품 둘러보기
-              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
             </Link>
           </div>
         </div>
@@ -202,7 +202,7 @@ const Orders = () => {
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-gradient-primary rounded-2xl flex items-center justify-center">
-                          <Package className="h-6 w-6 text-white" />
+                          <Package className="h-6 w-6 text-white" strokeWidth={2} />
                         </div>
                         <div>
                           <div className="flex items-center gap-3 mb-2">
@@ -212,7 +212,7 @@ const Orders = () => {
                             </span>
                           </div>
                           <div className="flex items-center text-sm text-secondary-600">
-                            <Calendar className="h-4 w-4 mr-2" />
+                            <Calendar className="h-4 w-4 mr-2" strokeWidth={2} />
                             {orderDate.toLocaleDateString('ko-KR', {
                               year: 'numeric',
                               month: 'long',
@@ -251,7 +251,7 @@ const Orders = () => {
                         >
                           <div className="flex items-center gap-6 flex-1">
                             <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-soft">
-                              <Package className="h-8 w-8 text-primary-600" />
+                              <Package className="h-8 w-8 text-primary-600" strokeWidth={2} />
                             </div>
                             <div className="flex-1 min-w-0">
                               <h4 className="font-semibold text-secondary-900 text-lg line-clamp-1 mb-1">
@@ -277,7 +277,7 @@ const Orders = () => {
                     <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
                       <div className="flex items-center text-secondary-600">
                         <div className="w-8 h-8 bg-primary-100 rounded-xl flex items-center justify-center mr-3">
-                          <MapPin className="h-4 w-4 text-primary-600" />
+                          <MapPin className="h-4 w-4 text-primary-600" strokeWidth={2} />
                         </div>
                         <div>
                           <div className="font-medium text-secondary-900 mb-1">배송지</div>
@@ -286,7 +286,7 @@ const Orders = () => {
                       </div>
                       <button className="btn-secondary group">
                         상세보기
-                        <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
                       </button>
                     </div>
                   </div>
@@ -311,7 +311,7 @@ const Orders = () => {
                                     ? 'bg-primary-500 text-white shadow-glow'
                                     : 'bg-secondary-200 text-secondary-500'
                                 }`}>
-                                  {isCompleted ? <CheckCircle size={20} /> : index + 1}
+                                  {isCompleted ? <CheckCircle size={20} strokeWidth={2} /> : index + 1}
                                 </div>
                                 <span className={`text-sm mt-3 font-medium text-center ${
                                   isActive ? 'text-primary-700' : 'text-secondary-500'
@@ -349,9 +349,9 @@ const Orders = () => {
                   to="/products"
                   className="btn-primary group text-lg py-4 px-8"
                 >
-                  <Package className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+                  <Package className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" strokeWidth={2} />
                   상품 둘러보기
-                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
                 </Link>
               </div>
             </div>

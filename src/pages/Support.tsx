@@ -40,7 +40,7 @@ const Support = () => {
       {/* Header */}
       <div className="text-center mb-16 animate-fade-in-up">
         <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 rounded-3xl shadow-large mb-8 animate-float">
-          <HeadphonesIcon className="h-10 w-10 text-white" />
+          <HeadphonesIcon className="h-10 w-10 text-white" strokeWidth={2} />
         </div>
         <h1 className="text-5xl font-display font-bold text-secondary-900 mb-6">
           고객지원
@@ -49,7 +49,7 @@ const Support = () => {
           궁금하신 사항이 있으시면 언제든 문의해주세요
         </p>
         <div className="flex items-center justify-center mt-6">
-          <Sparkles className="h-5 w-5 text-accent-500 mr-2" />
+          <Sparkles className="h-5 w-5 text-accent-500 mr-2" strokeWidth={2} />
           <span className="text-accent-600 font-medium">24시간 전문 상담</span>
         </div>
       </div>
@@ -58,7 +58,7 @@ const Support = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
         <div className="glass p-8 rounded-3xl text-center animate-fade-in-up delay-100 hover:scale-105 transition-all duration-300 cursor-pointer group">
           <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft group-hover:shadow-large transition-shadow">
-            <Phone className="h-8 w-8 text-white" />
+            <Phone className="h-8 w-8 text-white" strokeWidth={2} />
           </div>
           <h3 className="text-xl font-display font-bold text-secondary-900 mb-3">전화 상담</h3>
           <p className="text-secondary-600 text-sm mb-4">평일 09:00 - 18:00</p>
@@ -67,7 +67,7 @@ const Support = () => {
 
         <div className="glass p-8 rounded-3xl text-center animate-fade-in-up delay-200 hover:scale-105 transition-all duration-300 cursor-pointer group">
           <div className="w-16 h-16 bg-gradient-to-br from-accent-400 to-accent-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft group-hover:shadow-large transition-shadow">
-            <Mail className="h-8 w-8 text-white" />
+            <Mail className="h-8 w-8 text-white" strokeWidth={2} />
           </div>
           <h3 className="text-xl font-display font-bold text-secondary-900 mb-3">이메일 문의</h3>
           <p className="text-secondary-600 text-sm mb-4">24시간 접수</p>
@@ -76,7 +76,7 @@ const Support = () => {
 
         <div className="glass p-8 rounded-3xl text-center animate-fade-in-up delay-300 hover:scale-105 transition-all duration-300 cursor-pointer group">
           <div className="w-16 h-16 bg-gradient-to-br from-success-400 to-success-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft group-hover:shadow-large transition-shadow">
-            <MapPin className="h-8 w-8 text-white" />
+            <MapPin className="h-8 w-8 text-white" strokeWidth={2} />
           </div>
           <h3 className="text-xl font-display font-bold text-secondary-900 mb-3">방문 상담</h3>
           <p className="text-secondary-600 text-sm mb-4">서울시 강남구</p>
@@ -85,7 +85,7 @@ const Support = () => {
 
         <div className="glass p-8 rounded-3xl text-center animate-fade-in-up delay-400 hover:scale-105 transition-all duration-300 cursor-pointer group">
           <div className="w-16 h-16 bg-gradient-to-br from-info-400 to-info-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft group-hover:shadow-large transition-shadow">
-            <MessageCircle className="h-8 w-8 text-white" />
+            <MessageCircle className="h-8 w-8 text-white" strokeWidth={2} />
           </div>
           <h3 className="text-xl font-display font-bold text-secondary-900 mb-3">실시간 채팅</h3>
           <p className="text-secondary-600 text-sm mb-4">평일 09:00 - 18:00</p>
@@ -96,7 +96,7 @@ const Support = () => {
       {/* FAQ Section */}
       <div className="card p-10 mb-16 animate-fade-in-up delay-500">
         <div className="text-center mb-10">
-          <Shield className="h-8 w-8 text-primary-600 mx-auto mb-4" />
+          <Shield className="h-8 w-8 text-primary-600 mx-auto mb-4" strokeWidth={2} />
           <h2 className="text-3xl font-display font-bold text-secondary-900 mb-4">
             자주 묻는 질문
           </h2>
@@ -113,9 +113,9 @@ const Support = () => {
                 <span className="text-lg font-medium text-secondary-900 group-hover:text-primary-600 transition-colors">{faq.question}</span>
                 <div className="w-8 h-8 bg-secondary-100 rounded-xl flex items-center justify-center group-hover:bg-primary-100 transition-colors">
                   {openFAQ === index ? (
-                    <ChevronUp className="h-5 w-5 text-primary-600" />
+                    <ChevronUp className="h-5 w-5 text-primary-600" strokeWidth={2} />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-secondary-500 group-hover:text-primary-600 transition-colors" />
+                    <ChevronDown className="h-5 w-5 text-secondary-500 group-hover:text-primary-600 transition-colors" strokeWidth={2} />
                   )}
                 </div>
               </button>
@@ -134,7 +134,7 @@ const Support = () => {
       <div className="bg-gradient-to-br from-primary-50 via-info-50 to-primary-100 rounded-3xl p-10 mb-16 shadow-large border border-primary-200/50 animate-fade-in-up delay-600">
         <div className="text-center mb-10">
           <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft animate-float">
-            <Clock className="h-8 w-8 text-white" />
+            <Clock className="h-8 w-8 text-white" strokeWidth={2} />
           </div>
           <h2 className="text-2xl font-display font-bold text-secondary-900 mb-4">운영 시간</h2>
           <p className="text-secondary-600">언제든 편하게 문의해주세요</p>
@@ -183,7 +183,7 @@ const Support = () => {
       <div className="card p-10 animate-fade-in-up delay-700">
         <div className="text-center">
           <div className="w-20 h-20 bg-gradient-to-br from-accent-400 to-accent-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-soft animate-float">
-            <MessageCircle className="h-10 w-10 text-white" />
+            <MessageCircle className="h-10 w-10 text-white" strokeWidth={2} />
           </div>
           <h2 className="text-3xl font-display font-bold text-secondary-900 mb-6">
             문의하기

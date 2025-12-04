@@ -73,7 +73,7 @@ const Profile = () => {
           <div>
             <h1 className="text-4xl font-display font-bold text-secondary-900 mb-2 flex items-center">
               <div className="w-12 h-12 bg-gradient-primary rounded-2xl flex items-center justify-center mr-4">
-                <User className="h-7 w-7 text-white" />
+                <User className="h-7 w-7 text-white" strokeWidth={2} />
               </div>
               내 프로필
             </h1>
@@ -98,18 +98,18 @@ const Profile = () => {
             <div className="bg-gradient-to-r from-primary-50 via-primary-25 to-accent-50 px-8 py-8 border-b border-secondary-200/50">
               <div className="flex items-center gap-8">
                 <div className="w-24 h-24 bg-gradient-primary rounded-3xl flex items-center justify-center shadow-soft animate-float">
-                  <User className="h-12 w-12 text-white" />
+                  <User className="h-12 w-12 text-white" strokeWidth={2} />
                 </div>
                 <div className="flex-1">
                   <h2 className="text-3xl font-display font-bold text-secondary-900 mb-2">{editedInfo.name}</h2>
                   <p className="text-lg text-secondary-600 mb-3">{editedInfo.company}</p>
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2 px-3 py-1 bg-success-100 text-success-700 rounded-full text-sm font-medium">
-                      <Calendar className="h-4 w-4" />
+                      <Calendar className="h-4 w-4" strokeWidth={2} />
                       가입일: 2025년 3월
                     </div>
                     <div className="flex items-center gap-2 px-3 py-1 bg-accent-100 text-accent-700 rounded-full text-sm font-medium">
-                      <Award className="h-4 w-4" />
+                      <Award className="h-4 w-4" strokeWidth={2} />
                       GOLD 등급
                     </div>
                   </div>
@@ -142,7 +142,7 @@ const Profile = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="flex items-center text-sm font-semibold text-secondary-700">
-                    <Mail className="h-5 w-5 mr-2 text-primary-600" />
+                    <Mail className="h-5 w-5 mr-2 text-primary-600" strokeWidth={2} />
                     이메일 주소
                   </label>
                   {isEditing ? (
@@ -159,7 +159,7 @@ const Profile = () => {
 
                 <div className="space-y-2">
                   <label className="flex items-center text-sm font-semibold text-secondary-700">
-                    <Phone className="h-5 w-5 mr-2 text-primary-600" />
+                    <Phone className="h-5 w-5 mr-2 text-primary-600" strokeWidth={2} />
                     전화번호
                   </label>
                   {isEditing ? (
@@ -177,7 +177,7 @@ const Profile = () => {
 
               <div className="space-y-2">
                 <label className="flex items-center text-sm font-semibold text-secondary-700">
-                  <MapPin className="h-5 w-5 mr-2 text-primary-600" />
+                  <MapPin className="h-5 w-5 mr-2 text-primary-600" strokeWidth={2} />
                   배송 주소
                 </label>
                 {isEditing ? (
@@ -216,7 +216,7 @@ const Profile = () => {
           <div className="card p-8 animate-fade-in-up delay-200">
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl font-display font-bold text-secondary-900 flex items-center">
-                <Clock className="h-6 w-6 mr-3 text-primary-600" />
+                <Clock className="h-6 w-6 mr-3 text-primary-600" strokeWidth={2} />
                 최근 활동
               </h3>
               <Link
@@ -240,9 +240,9 @@ const Profile = () => {
                       activity.type === '리뷰' ? 'bg-accent-100 text-accent-600' :
                       'bg-success-100 text-success-600'
                     }`}>
-                      {activity.type === '주문' ? <Package className="h-6 w-6" /> :
-                       activity.type === '리뷰' ? <Star className="h-6 w-6" /> :
-                       <Mail className="h-6 w-6" />}
+                      {activity.type === '주문' ? <Package className="h-6 w-6" strokeWidth={2} /> :
+                       activity.type === '리뷰' ? <Star className="h-6 w-6" strokeWidth={2} /> :
+                       <Mail className="h-6 w-6" strokeWidth={2} />}
                     </div>
                     <div>
                       <p className="font-semibold text-secondary-900 text-lg">{activity.description}</p>
@@ -284,7 +284,7 @@ const Profile = () => {
                         <p className="text-2xl font-bold text-secondary-900">{stat.value}</p>
                       </div>
                     </div>
-                    <TrendingUp className="h-5 w-5 text-success-500" />
+                    <TrendingUp className="h-5 w-5 text-success-500" strokeWidth={2} />
                   </div>
                 </div>
               );
@@ -295,14 +295,14 @@ const Profile = () => {
           <div className="bg-gradient-to-br from-accent-50 via-yellow-50 to-accent-100 rounded-3xl shadow-large p-8 border border-accent-200/50 animate-fade-in-up delay-300">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-display font-bold text-secondary-900 flex items-center">
-                <Award className="h-6 w-6 mr-3 text-accent-600" />
+                <Award className="h-6 w-6 mr-3 text-accent-600" strokeWidth={2} />
                 멤버십 등급
               </h3>
-              <Sparkles className="h-5 w-5 text-accent-500" />
+              <Sparkles className="h-5 w-5 text-accent-500" strokeWidth={2} />
             </div>
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-accent-400 to-accent-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-soft animate-float">
-                <Award className="h-10 w-10 text-white" />
+                <Award className="h-10 w-10 text-white" strokeWidth={2} />
               </div>
               <p className="text-3xl font-display font-bold text-secondary-900 mb-2">GOLD</p>
               <p className="text-secondary-600 mb-6">다음 등급까지 ₩750,000</p>
@@ -316,7 +316,7 @@ const Profile = () => {
           {/* Quick Actions */}
           <div className="card p-8 animate-fade-in-up delay-500">
             <h3 className="text-xl font-display font-bold text-secondary-900 mb-6 flex items-center">
-              <Settings className="h-6 w-6 mr-3 text-primary-600" />
+              <Settings className="h-6 w-6 mr-3 text-primary-600" strokeWidth={2} />
               빠른 설정
             </h3>
             <div className="space-y-3">
@@ -325,25 +325,25 @@ const Profile = () => {
                 className="flex items-center justify-between w-full p-4 bg-secondary-50 hover:bg-secondary-100 rounded-2xl transition-all duration-200 group"
               >
                 <span className="font-medium text-secondary-900">주문 내역 보기</span>
-                <Package className="h-5 w-5 text-secondary-500 group-hover:text-primary-600 transition-colors" />
+                <Package className="h-5 w-5 text-secondary-500 group-hover:text-primary-600 transition-colors" strokeWidth={2} />
               </Link>
               <Link
                 to="/wishlist"
                 className="flex items-center justify-between w-full p-4 bg-secondary-50 hover:bg-secondary-100 rounded-2xl transition-all duration-200 group"
               >
                 <span className="font-medium text-secondary-900">위시리스트</span>
-                <Heart className="h-5 w-5 text-secondary-500 group-hover:text-error-600 transition-colors" />
+                <Heart className="h-5 w-5 text-secondary-500 group-hover:text-error-600 transition-colors" strokeWidth={2} />
               </Link>
               <Link
                 to="/support"
                 className="flex items-center justify-between w-full p-4 bg-secondary-50 hover:bg-secondary-100 rounded-2xl transition-all duration-200 group"
               >
                 <span className="font-medium text-secondary-900">고객 지원</span>
-                <Settings className="h-5 w-5 text-secondary-500 group-hover:text-primary-600 transition-colors" />
+                <Settings className="h-5 w-5 text-secondary-500 group-hover:text-primary-600 transition-colors" strokeWidth={2} />
               </Link>
               <button className="flex items-center justify-between w-full p-4 bg-error-50 hover:bg-error-100 rounded-2xl transition-all duration-200 group text-error-700">
                 <span className="font-medium">로그아웃</span>
-                <X className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                <X className="h-5 w-5 group-hover:scale-110 transition-transform" strokeWidth={2} />
               </button>
             </div>
           </div>

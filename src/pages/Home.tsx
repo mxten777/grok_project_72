@@ -15,7 +15,7 @@ const Home = () => {
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 font-medium text-sm mb-8 animate-fade-in-up">
-              <Sparkles className="h-4 w-4 mr-2" />
+              <Sparkles className="h-4 w-4 mr-2" strokeWidth={2} />
               스마트 유통 플랫폼
             </div>
 
@@ -43,12 +43,12 @@ const Home = () => {
                 to="/products"
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 shadow-large hover:shadow-xl text-sm sm:text-base"
               >
-                <Package className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <Package className="mr-2 h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} />
                 상품 둘러보기
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} />
               </Link>
               <button className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary-600 font-bold rounded-xl border-2 border-primary-200 hover:bg-primary-50 transition-all duration-300 transform hover:scale-105 shadow-soft hover:shadow-medium text-sm sm:text-base">
-                <Users className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <Users className="mr-2 h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} />
                 회원가입
               </button>
             </div>
@@ -56,15 +56,15 @@ const Home = () => {
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 text-sm text-secondary-500 animate-fade-in-up delay-500 max-w-2xl mx-auto">
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" strokeWidth={2} />
                 <span>무료배송</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" strokeWidth={2} />
                 <span>품질보증</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" strokeWidth={2} />
                 <span>24/7 고객지원</span>
               </div>
             </div>
@@ -176,7 +176,7 @@ const Home = () => {
                     <Star key={i} className="h-5 w-5 fill-current" />
                   ))}
                 </div>
-                <Award className="h-6 w-6 text-accent-500 ml-2" />
+                <Award className="h-6 w-6 text-accent-500 ml-2" strokeWidth={2} />
               </div>
               <p className="text-secondary-600 mb-6 italic leading-relaxed">
                 "한국코프론 덕분에 재고 관리와 주문 처리가 훨씬 효율적으로 바뀌었습니다. 실시간 추적 기능이 특히 마음에 들어요."
@@ -199,7 +199,7 @@ const Home = () => {
                     <Star key={i} className="h-5 w-5 fill-current" />
                   ))}
                 </div>
-                <Award className="h-6 w-6 text-accent-500 ml-2" />
+                <Award className="h-6 w-6 text-accent-500 ml-2" strokeWidth={2} />
               </div>
               <p className="text-secondary-600 mb-6 italic leading-relaxed">
                 "품질 좋은 제품을 합리적인 가격에 공급받을 수 있어 만족합니다. 고객지원도 빠르고 친절합니다."
@@ -222,7 +222,7 @@ const Home = () => {
                     <Star key={i} className="h-5 w-5 fill-current" />
                   ))}
                 </div>
-                <Award className="h-6 w-6 text-accent-500 ml-2" />
+                <Award className="h-6 w-6 text-accent-500 ml-2" strokeWidth={2} />
               </div>
               <p className="text-secondary-600 mb-6 italic leading-relaxed">
                 "스마트한 플랫폼으로 업무 효율성이 크게 향상되었습니다. 앞으로도 계속 이용할 계획입니다."
@@ -246,7 +246,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container-custom relative z-10 text-center">
           <div className="max-w-3xl mx-auto">
-            <TrendingUp className="h-16 w-16 mx-auto mb-8 text-accent-300" />
+            <TrendingUp className="h-16 w-16 mx-auto mb-8 text-accent-300" strokeWidth={2} />
             <h2 className="text-3xl lg:text-4xl font-display font-bold mb-6">
               지금 바로 시작하세요
             </h2>
@@ -261,13 +261,13 @@ const Home = () => {
                 className="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-bold rounded-xl hover:bg-accent-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
                 상품 둘러보기
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5" strokeWidth={2} />
               </Link>
               <Link
                 to="/login"
                 className="inline-flex items-center px-8 py-4 bg-primary-500/20 text-white font-bold rounded-xl border-2 border-white/30 hover:bg-primary-500/30 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
               >
-                <Users className="mr-2 h-5 w-5" />
+                <Users className="mr-2 h-5 w-5" strokeWidth={2} />
                 회원가입
               </Link>
             </div>

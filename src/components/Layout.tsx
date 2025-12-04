@@ -89,7 +89,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                   >
                     <Icon className={`h-5 w-5 transition-transform group-hover:scale-110 ${
                       isActive ? 'text-white' : 'text-secondary-500 group-hover:text-primary-500'
-                    }`} />
+                    }`} strokeWidth={2} />
                     <span className="hidden xl:block text-sm">{item.label}</span>
                   </Link>
                 );
@@ -100,12 +100,12 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
             <div className="flex items-center space-x-2">
               {/* Search */}
               <button className="hidden sm:flex items-center justify-center w-10 h-10 text-secondary-500 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200 hover:scale-105">
-                <Search className="h-5 w-5" />
+                <Search className="h-5 w-5" strokeWidth={2} />
               </button>
 
               {/* Notifications */}
               <button className="hidden sm:flex items-center justify-center w-10 h-10 text-secondary-500 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200 hover:scale-105 relative">
-                <Bell className="h-5 w-5" />
+                <Bell className="h-5 w-5" strokeWidth={2} />
                 <span className="absolute -top-1 -right-1 w-3 h-3 bg-accent-500 rounded-full border-2 border-white"></span>
               </button>
 
@@ -118,7 +118,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                   {user ? (
                     <>
                       <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-soft">
-                        <UserCircle className="h-5 w-5 text-white" />
+                        <UserCircle className="h-5 w-5 text-white" strokeWidth={2} />
                       </div>
                       <span className="hidden sm:block text-sm font-medium">
                         {user.displayName || user.email?.split('@')[0] || '사용자'}
@@ -137,7 +137,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                     <div className="p-4 border-b border-secondary-200/50">
                       <div className="flex items-center space-x-3">
                         <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-soft">
-                          <UserCircle className="h-7 w-7 text-white" />
+                          <UserCircle className="h-7 w-7 text-white" strokeWidth={2} />
                         </div>
                         <div>
                           <p className="font-semibold text-secondary-900">{user?.displayName || '사용자'}</p>
@@ -151,7 +151,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                         className="flex items-center space-x-3 px-3 py-2 rounded-xl text-secondary-700 hover:bg-secondary-100 hover:text-primary-600 transition-all duration-200"
                         onClick={() => setProfileMenuOpen(false)}
                       >
-                        <UserCircle className="h-5 w-5" />
+                        <UserCircle className="h-5 w-5" strokeWidth={2} />
                         <span>프로필</span>
                       </Link>
                       {isAdminUser && (
@@ -160,7 +160,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                           className="flex items-center space-x-3 px-3 py-2 rounded-xl text-secondary-700 hover:bg-secondary-100 hover:text-primary-600 transition-all duration-200"
                           onClick={() => setProfileMenuOpen(false)}
                         >
-                          <BarChart3 className="h-5 w-5" />
+                          <BarChart3 className="h-5 w-5" strokeWidth={2} />
                           <span>관리자</span>
                         </Link>
                       )}
@@ -168,7 +168,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                         onClick={handleLogout}
                         className="w-full flex items-center space-x-3 px-3 py-2 rounded-xl text-secondary-700 hover:bg-error-50 hover:text-error-600 transition-all duration-200"
                       >
-                        <LogOut className="h-5 w-5" />
+                        <LogOut className="h-5 w-5" strokeWidth={2} />
                         <span>로그아웃</span>
                       </button>
                     </div>
@@ -181,7 +181,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                 onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
                 className="lg:hidden flex items-center justify-center w-10 h-10 text-secondary-500 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
               >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMobileMenuOpen ? <X className="h-6 w-6" strokeWidth={2} /> : <Menu className="h-6 w-6" strokeWidth={2} />}
               </button>
             </div>
           </div>
@@ -205,7 +205,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                         : 'text-secondary-600 hover:text-primary-600 hover:bg-primary-50'
                     }`}
                   >
-                    <Icon className={`h-5 w-5 ${isActive ? 'text-white' : 'text-secondary-500'}`} />
+                    <Icon className={`h-5 w-5 ${isActive ? 'text-white' : 'text-secondary-500'}`} strokeWidth={2} />
                     <span>{item.label}</span>
                   </Link>
                 );

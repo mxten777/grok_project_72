@@ -87,7 +87,7 @@ const Cart = () => {
         <div className="text-center animate-fade-in-up">
           <div className="card p-16 max-w-2xl mx-auto">
             <div className="w-24 h-24 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl flex items-center justify-center mx-auto mb-8 animate-float">
-              <ShoppingCart className="h-12 w-12 text-primary-600" />
+              <ShoppingCart className="h-12 w-12 text-primary-600" strokeWidth={2} />
             </div>
             <h1 className="text-4xl font-display font-bold text-secondary-900 mb-4">
               장바구니가 비어있습니다
@@ -99,9 +99,9 @@ const Cart = () => {
               to="/products"
               className="btn-primary group text-lg py-4 px-8"
             >
-              <Package className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <Package className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" strokeWidth={2} />
               상품 둘러보기
-              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
             </Link>
           </div>
 
@@ -114,7 +114,7 @@ const Cart = () => {
               {[1, 2, 3].map((i) => (
                 <div key={i} className="card p-6 text-center hover:shadow-large transition-all duration-300">
                   <div className="w-16 h-16 bg-gradient-to-br from-accent-100 to-accent-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Sparkles className="h-8 w-8 text-accent-600" />
+                    <Sparkles className="h-8 w-8 text-accent-600" strokeWidth={2} />
                   </div>
                   <h3 className="text-lg font-semibold text-secondary-900 mb-2">
                     인기 상품 {i}
@@ -145,7 +145,7 @@ const Cart = () => {
           <div>
             <h1 className="text-4xl font-display font-bold text-secondary-900 mb-2 flex items-center">
               <div className="w-12 h-12 bg-gradient-primary rounded-2xl flex items-center justify-center mr-4">
-                <ShoppingCart className="h-7 w-7 text-white" />
+                <ShoppingCart className="h-7 w-7 text-white" strokeWidth={2} />
               </div>
               장바구니
             </h1>
@@ -176,7 +176,7 @@ const Cart = () => {
               <div className="flex items-center gap-8">
                 {/* Product Image */}
                 <div className="relative w-28 h-28 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-soft overflow-hidden">
-                  <Package className="h-14 w-14 text-primary-400" />
+                  <Package className="h-14 w-14 text-primary-400" strokeWidth={2} />
                   {item.product.stock < 10 && (
                     <div className="absolute -top-2 -right-2 w-6 h-6 bg-error-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">!</span>
@@ -233,7 +233,7 @@ const Cart = () => {
                       className="p-3 hover:bg-white rounded-xl transition-all duration-200 hover:shadow-soft"
                       disabled={item.quantity <= 1}
                     >
-                      <Minus className="h-5 w-5 text-secondary-600" />
+                      <Minus className="h-5 w-5 text-secondary-600" strokeWidth={2} />
                     </button>
                     <span className="px-6 py-3 font-bold text-lg min-w-[4rem] text-center bg-white rounded-xl">
                       {item.quantity}
@@ -243,7 +243,7 @@ const Cart = () => {
                       className="p-3 hover:bg-white rounded-xl transition-all duration-200 hover:shadow-soft"
                       disabled={item.quantity >= item.product.stock}
                     >
-                      <Plus className="h-5 w-5 text-secondary-600" />
+                      <Plus className="h-5 w-5 text-secondary-600" strokeWidth={2} />
                     </button>
                   </div>
 
@@ -255,7 +255,7 @@ const Cart = () => {
                       onClick={() => handleRemoveItem(item.product.id, item.product.name)}
                       className="text-error-500 hover:text-error-700 text-sm flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-error-50 transition-all duration-200"
                     >
-                      <Trash2 className="h-4 w-4" />
+                      <Trash2 className="h-4 w-4" strokeWidth={2} />
                       삭제
                     </button>
                   </div>
@@ -270,7 +270,7 @@ const Cart = () => {
               onClick={handleClearCart}
               className="btn-ghost group text-lg py-4 px-8"
             >
-              <Trash2 className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <Trash2 className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" strokeWidth={2} />
               장바구니 전체 비우기
             </button>
           </div>
@@ -281,7 +281,7 @@ const Cart = () => {
           <div className="glass rounded-3xl p-8 shadow-large sticky top-6 animate-fade-in-up delay-300">
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 bg-gradient-primary rounded-2xl flex items-center justify-center mr-4">
-                <CreditCard className="h-6 w-6 text-white" />
+                <CreditCard className="h-6 w-6 text-white" strokeWidth={2} />
               </div>
               <h2 className="text-2xl font-display font-bold text-secondary-900">
                 주문 요약
@@ -322,20 +322,20 @@ const Cart = () => {
             <div className="bg-gradient-to-br from-success-50 to-primary-50 rounded-2xl p-6 mb-8 space-y-4">
               <div className="flex items-center text-success-700">
                 <div className="w-8 h-8 bg-success-100 rounded-xl flex items-center justify-center mr-3">
-                  <Truck className="h-4 w-4 text-success-600" />
+                  <Truck className="h-4 w-4 text-success-600" strokeWidth={2} />
                 </div>
                 <span className="font-medium">10만원 이상 무료배송</span>
               </div>
               <div className="flex items-center text-primary-700">
                 <div className="w-8 h-8 bg-primary-100 rounded-xl flex items-center justify-center mr-3">
-                  <Shield className="h-4 w-4 text-primary-600" />
+                  <Shield className="h-4 w-4 text-primary-600" strokeWidth={2} />
                 </div>
                 <span className="font-medium">안전한 결제 보장</span>
               </div>
               {user && (
                 <div className="flex items-center text-accent-700">
                   <div className="w-8 h-8 bg-accent-100 rounded-xl flex items-center justify-center mr-3">
-                    <Gift className="h-4 w-4 text-accent-600" />
+                    <Gift className="h-4 w-4 text-accent-600" strokeWidth={2} />
                   </div>
                   <span className="font-medium">고객 등급 할인 적용!</span>
                 </div>
@@ -347,9 +347,9 @@ const Cart = () => {
               onClick={handleOrder}
               className="w-full btn-primary group text-xl py-5 mb-4"
             >
-              <CreditCard className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <CreditCard className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" strokeWidth={2} />
               주문하기
-              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
             </button>
 
             <p className="text-sm text-secondary-500 text-center leading-relaxed">

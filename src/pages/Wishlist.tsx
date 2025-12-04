@@ -32,7 +32,7 @@ const Wishlist = () => {
         <div className="text-center animate-fade-in-up">
           <div className="card p-16 max-w-2xl mx-auto">
             <div className="w-24 h-24 bg-gradient-to-br from-error-100 to-error-200 rounded-3xl flex items-center justify-center mx-auto mb-8 animate-float">
-              <Heart className="h-12 w-12 text-error-500 fill-current" />
+              <Heart className="h-12 w-12 text-error-500 fill-current" strokeWidth={2} />
             </div>
             <h1 className="text-4xl font-display font-bold text-secondary-900 mb-4">
               위시리스트가 비어있습니다
@@ -44,9 +44,9 @@ const Wishlist = () => {
               to="/products"
               className="btn-primary group text-lg py-4 px-8"
             >
-              <Package className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+              <Package className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" strokeWidth={2} />
               상품 둘러보기
-              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
             </Link>
           </div>
 
@@ -59,7 +59,7 @@ const Wishlist = () => {
               {[1, 2, 3].map((i) => (
                 <div key={i} className="card p-6 text-center hover:shadow-large transition-all duration-300">
                   <div className="w-16 h-16 bg-gradient-to-br from-accent-100 to-accent-200 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Sparkles className="h-8 w-8 text-accent-600" />
+                    <Sparkles className="h-8 w-8 text-accent-600" strokeWidth={2} />
                   </div>
                   <h3 className="text-lg font-semibold text-secondary-900 mb-2">
                     인기 상품 {i}
@@ -90,7 +90,7 @@ const Wishlist = () => {
           <div>
             <h1 className="text-4xl font-display font-bold text-secondary-900 mb-2 flex items-center">
               <div className="w-12 h-12 bg-gradient-to-br from-error-500 to-error-600 rounded-2xl flex items-center justify-center mr-4">
-                <Heart className="h-7 w-7 text-white fill-current" />
+                <Heart className="h-7 w-7 text-white fill-current" strokeWidth={2} />
               </div>
               위시리스트
             </h1>
@@ -118,7 +118,7 @@ const Wishlist = () => {
             <div className="relative overflow-hidden">
               <Link to={`/products/${product.id}`}>
                 <div className="w-full h-56 bg-gradient-to-br from-primary-50 via-primary-25 to-secondary-50 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Package className="h-20 w-20 text-primary-400 group-hover:text-primary-500 transition-colors" />
+                  <Package className="h-20 w-20 text-primary-400 group-hover:text-primary-500 transition-colors" strokeWidth={2} />
                 </div>
               </Link>
 
@@ -127,7 +127,7 @@ const Wishlist = () => {
                 onClick={() => handleRemoveFromWishlist(product.id, product.name)}
                 className="absolute top-4 right-4 p-3 bg-white/80 backdrop-blur-md rounded-2xl shadow-soft hover:shadow-medium hover:bg-white transition-all duration-200 group"
               >
-                <X className="h-5 w-5 text-error-500 group-hover:scale-110 transition-transform" />
+                <X className="h-5 w-5 text-error-500 group-hover:scale-110 transition-transform" strokeWidth={2} />
               </button>
 
               {/* Stock Badge */}
@@ -166,7 +166,7 @@ const Wishlist = () => {
                 onClick={() => handleAddToCart(product)}
                 className="w-full btn-primary group text-base py-3"
               >
-                <ShoppingCart className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                <ShoppingCart className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" strokeWidth={2} />
                 장바구니 담기
               </button>
             </div>
@@ -181,7 +181,7 @@ const Wishlist = () => {
             onClick={handleClearWishlist}
             className="btn-ghost group text-lg py-4 px-8"
           >
-            <Trash2 className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+            <Trash2 className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" strokeWidth={2} />
             위시리스트 전체 비우기
           </button>
         </div>

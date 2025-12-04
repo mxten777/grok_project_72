@@ -53,6 +53,38 @@
   button, a, input, textarea, select {
     @apply transition-all duration-200 ease-out;
   }
+
+  /* SVG 아이콘 가시성 강제 설정 */
+  button svg, .btn-ghost svg, .btn-primary svg, .btn-secondary svg {
+    stroke-width: 2 !important;
+    stroke: currentColor !important;
+  }
+
+  /* 특정 버튼 클래스 내 SVG 아이콘 */
+  .btn-ghost svg {
+    color: #374151 !important; /* secondary-700 */
+  }
+
+  .btn-ghost:hover svg {
+    color: #111827 !important; /* secondary-900 */
+  }
+
+  /* 모든 SVG 아이콘에 대한 강제 설정 */
+  svg {
+    stroke-width: 2;
+    stroke: currentColor;
+  }
+
+  /* 흰색 배경에서 보이지 않는 아이콘들 강제 색상 설정 */
+  .bg-white svg, .glass svg {
+    stroke: #374151 !important; /* secondary-700 */
+  }
+
+  /* 카드 내부 아이콘들 */
+  .card svg {
+    stroke: currentColor;
+    stroke-width: 2;
+  }
 }
 
 @layer components {
