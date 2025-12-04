@@ -133,7 +133,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
 
                 {/* Profile Dropdown */}
                 {isProfileMenuOpen && user && (
-                  <div className="absolute right-0 mt-2 w-64 glass rounded-2xl shadow-large border border-secondary-200/50 animate-scale-in">
+                  <div className="absolute right-0 mt-2 w-64 bg-white backdrop-blur-md rounded-2xl shadow-xl border border-secondary-200/50 animate-scale-in">
                     <div className="p-4 border-b border-secondary-200/50">
                       <div className="flex items-center space-x-3">
                         <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-soft">
