@@ -160,7 +160,23 @@ const QnAManagement: React.FC = () => {
 
   return (
     <div className="container-custom py-8 sm:py-12 lg:py-16">
-      <h1 className="text-3xl admin-heading mb-6 text-gray-800">상품 문의 관리</h1>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-16 animate-fade-in-up">
+        <div className="flex items-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-800 rounded-3xl flex items-center justify-center mr-8 shadow-2xl animate-float group-hover:shadow-3xl transition-all duration-300">
+            <Package className="h-10 w-10 text-white drop-shadow-sm" strokeWidth={2} />
+          </div>
+          <div>
+            <h1 className="text-5xl font-display font-bold bg-gradient-to-r from-primary-700 via-primary-800 to-primary-900 bg-clip-text text-transparent drop-shadow-sm mb-3">
+              상품 문의 관리
+            </h1>
+            <p className="text-lg text-secondary-600 flex items-center font-medium tracking-wide">
+              <Sparkles className="h-5 w-5 mr-3 text-accent-500 drop-shadow-sm" strokeWidth={2} />
+              고객 문의사항에 대한 신속하고 정확한 응대 시스템
+            </p>
+          </div>
+        </div>
+      </div>
       
       <div className="bg-white p-8 rounded-lg shadow-md">
         {loading ? (

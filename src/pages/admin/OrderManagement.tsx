@@ -175,17 +175,17 @@ const OrderManagement = () => {
   return (
     <div className="container-custom py-16">
       {/* Header */}
-      <div className="flex items-center justify-between mb-12 animate-fade-in-up">
+      <div className="flex items-center justify-between mb-16 animate-fade-in-up">
         <div className="flex items-center">
-          <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-3xl flex items-center justify-center mr-6 shadow-large animate-float">
-            <Package className="h-8 w-8 text-white" />
+          <div className="w-20 h-20 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-800 rounded-3xl flex items-center justify-center mr-8 shadow-2xl animate-float group-hover:shadow-3xl transition-all duration-300">
+            <Package className="h-10 w-10 text-white drop-shadow-sm" strokeWidth={2} />
           </div>
           <div>
-            <h1 className="text-4xl admin-heading mb-2">
+            <h1 className="text-5xl font-display font-bold bg-gradient-to-r from-primary-700 via-primary-800 to-primary-900 bg-clip-text text-transparent drop-shadow-sm mb-3">
               주문 관리
             </h1>
-            <p className="admin-caption flex items-center">
-              <Sparkles className="h-4 w-4 mr-2 text-accent-500" />
+            <p className="text-lg text-secondary-600 flex items-center font-medium tracking-wide">
+              <Sparkles className="h-5 w-5 mr-3 text-accent-500 drop-shadow-sm" strokeWidth={2} />
               실시간 주문 현황 및 상태 관리
             </p>
           </div>
