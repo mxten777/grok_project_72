@@ -189,7 +189,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-secondary-200/50 animate-slide-down shadow-lg">
+          <div className="lg:hidden bg-white backdrop-blur-md border-t border-secondary-200/50 animate-slide-down shadow-xl">
             <div className="px-4 py-6 space-y-2">
               {nav.map((item) => {
                 const Icon = item.icon;
