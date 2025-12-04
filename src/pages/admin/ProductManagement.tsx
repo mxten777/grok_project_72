@@ -157,37 +157,27 @@ const ProductManagement = () => {
       </div>
 
       {/* Products Table */}
-      <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-br from-info-500/10 via-info-600/5 to-info-700/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-        <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl border border-info-200/20 shadow-2xl hover:shadow-3xl animate-fade-in-up delay-300 overflow-hidden">
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-info-400/5 to-info-600/3 rounded-full -translate-y-20 translate-x-20"></div>
-          <div className="relative z-10 p-8 border-b border-info-200/30">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <div className="w-14 h-14 bg-gradient-to-br from-info-500 via-info-600 to-info-700 rounded-2xl flex items-center justify-center mr-5 shadow-xl">
-                  <Shield className="w-7 h-7 text-white drop-shadow-sm" strokeWidth={2} />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-display font-bold bg-gradient-to-r from-info-700 to-info-900 bg-clip-text text-transparent">상품 목록</h2>
-                  <p className="text-sm text-secondary-600 font-medium">상품 정보 관리 시스템</p>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-info-50 to-info-100 px-4 py-2 rounded-full border border-info-200/50">
-                <div className="text-sm font-semibold text-info-700">
-                  총 {filteredProducts.length}개 상품
-                </div>
-              </div>
+      <div className="card animate-fade-in-up delay-300">
+        <div className="p-8 border-b border-secondary-200/50">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <Shield className="w-6 h-6 text-primary-600 mr-3" />
+              <h2 className="text-2xl admin-heading">상품 목록</h2>
+            </div>
+            <div className="text-sm text-secondary-600">
+              총 {filteredProducts.length}개 상품
             </div>
           </div>
+        </div>
 
-          <div className="relative z-10 overflow-x-auto">
-            <table className="min-w-full divide-y divide-secondary-200/20">
-              <thead className="bg-gradient-to-r from-secondary-50/80 to-secondary-100/60 backdrop-blur-sm">
-                <tr>
-                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">상품명</th>
-                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">카테고리</th>
-                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">가격</th>
-                  <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-700 uppercase tracking-wider">재고</th>
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-secondary-200/30">
+            <thead className="bg-secondary-50/50">
+              <tr>
+                <th className="px-8 py-6 text-left admin-table-header">상품명</th>
+                <th className="px-8 py-6 text-left admin-table-header">카테고리</th>
+                <th className="px-8 py-6 text-left admin-table-header">가격</th>
+                <th className="px-8 py-6 text-left admin-table-header">재고</th>
                 <th className="px-8 py-6 text-right admin-table-header">관리</th>
               </tr>
             </thead>
