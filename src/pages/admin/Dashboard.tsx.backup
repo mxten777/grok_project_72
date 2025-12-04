@@ -2,7 +2,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { ShoppingCart, DollarSign, AlertTriangle, Users, Package, TrendingUp, Bell, BarChart3, Sparkles, Shield } from 'lucide-react';
 
 const Dashboard = () => {
-  // 샘플 데이터
+  // 더미 데이터
   const salesData = [
     { month: '1월', sales: 1200000 },
     { month: '2월', sales: 1500000 },
@@ -50,7 +50,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container-custom py-8 sm:py-12 lg:py-16">
+    <div className="container-custom py-16">
       {/* Header */}
       <div className="flex items-center justify-between mb-12 animate-fade-in-up">
         <div className="flex items-center">
@@ -236,32 +236,31 @@ const Dashboard = () => {
           <div className="overflow-x-auto -mx-2 sm:mx-0">
             <div className="inline-block min-w-full align-middle">
               <table className="min-w-full">
-                <thead className="bg-secondary-50/50">
-                  <tr>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">주문번호</th>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">고객사</th>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">금액</th>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">상태</th>
-                    <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">날짜</th>
+              <thead className="bg-secondary-50/50">
+                <tr>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">주문번호</th>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">고객사</th>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">금액</th>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">상태</th>
+                  <th className="px-8 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">날짜</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-secondary-200/30">
+                {recentOrders.map((order) => (
+                  <tr key={order.id} className="hover:bg-secondary-50/30 transition-colors">
+                    <td className="px-8 py-6 whitespace-nowrap text-sm font-display font-bold text-secondary-900">{order.id}</td>
+                    <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-700">{order.customer}</td>
+                    <td className="px-8 py-6 whitespace-nowrap text-sm font-medium text-secondary-900">{order.amount}</td>
+                    <td className="px-8 py-6 whitespace-nowrap">
+                      <span className={`inline-flex px-3 py-1 text-xs font-display font-bold rounded-full ${getStatusColor(order.status)}`}>
+                        {order.status}
+                      </span>
+                    </td>
+                    <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-600">{order.date}</td>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-secondary-200/30">
-                  {recentOrders.map((order) => (
-                    <tr key={order.id} className="hover:bg-secondary-50/30 transition-colors">
-                      <td className="px-8 py-6 whitespace-nowrap text-sm font-display font-bold text-secondary-900">{order.id}</td>
-                      <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-700">{order.customer}</td>
-                      <td className="px-8 py-6 whitespace-nowrap text-sm font-medium text-secondary-900">{order.amount}</td>
-                      <td className="px-8 py-6 whitespace-nowrap">
-                        <span className={`inline-flex px-3 py-1 text-xs font-display font-bold rounded-full ${getStatusColor(order.status)}`}>
-                          {order.status}
-                        </span>
-                      </td>
-                      <td className="px-8 py-6 whitespace-nowrap text-sm text-secondary-600">{order.date}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 

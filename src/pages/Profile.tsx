@@ -106,7 +106,7 @@ const Profile = () => {
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2 px-3 py-1 bg-success-100 text-success-700 rounded-full text-sm font-medium">
                       <Calendar className="h-4 w-4" />
-                      가입일: 2024년 3월
+                      가입일: 2025년 3월
                     </div>
                     <div className="flex items-center gap-2 px-3 py-1 bg-accent-100 text-accent-700 rounded-full text-sm font-medium">
                       <Award className="h-4 w-4" />

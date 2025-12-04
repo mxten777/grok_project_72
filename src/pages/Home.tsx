@@ -20,51 +20,51 @@ const Home = () => {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up delay-100">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold mb-6 animate-fade-in-up delay-100">
               <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
                 에어컨 냉매·가스·부품
               </span>
-              <br />
-              <span className="text-secondary-800">
+              <br className="sm:hidden" />
+              <span className="text-secondary-800 block sm:inline">
                 스마트하게 주문하세요
               </span>
             </h1>
 
             {/* Subheading */}
-            <p className="text-lg lg:text-xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+            <p className="text-base sm:text-lg lg:text-xl text-secondary-700 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
               실시간 재고 확인, AI 기반 예측, 전문가 수준의 품질로
               <br className="hidden sm:block" />
               에너지 산업의 미래를 함께 만들어갑니다
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up delay-300">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up delay-300 max-w-lg mx-auto">
               <Link
                 to="/products"
-                className="inline-flex items-center px-8 py-4 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 shadow-large hover:shadow-xl"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 shadow-large hover:shadow-xl text-sm sm:text-base"
               >
-                <Package className="mr-2 h-5 w-5" />
+                <Package className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 상품 둘러보기
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
-              <button className="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-bold rounded-xl border-2 border-primary-200 hover:bg-primary-50 transition-all duration-300 transform hover:scale-105 shadow-soft hover:shadow-medium">
-                <Users className="mr-2 h-5 w-5" />
+              <button className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary-600 font-bold rounded-xl border-2 border-primary-200 hover:bg-primary-50 transition-all duration-300 transform hover:scale-105 shadow-soft hover:shadow-medium text-sm sm:text-base">
+                <Users className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 회원가입
               </button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-secondary-500 animate-fade-in-up delay-500">
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 text-sm text-secondary-500 animate-fade-in-up delay-500 max-w-2xl mx-auto">
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-success-500 mr-2" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" />
                 <span>무료배송</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-success-500 mr-2" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" />
                 <span>품질보증</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-success-500 mr-2" />
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-success-500 mr-2 flex-shrink-0" />
                 <span>24/7 고객지원</span>
               </div>
             </div>

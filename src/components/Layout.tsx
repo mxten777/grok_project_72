@@ -73,7 +73,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-0.5 flex-wrap">
+            <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 flex-wrap justify-center">
               {nav.map((item) => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.path;
@@ -81,7 +81,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`flex items-center space-x-1 px-3 py-2 rounded-xl font-medium transition-all duration-200 group ${
+                    className={`flex items-center space-x-1 px-2 xl:px-3 py-2 rounded-xl font-medium transition-all duration-200 group ${
                       isActive
                         ? 'bg-primary-500 text-white shadow-glow'
                         : 'text-secondary-600 hover:text-primary-600 hover:bg-primary-50'
@@ -90,7 +90,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
                     <Icon className={`h-5 w-5 transition-transform group-hover:scale-110 ${
                       isActive ? 'text-white' : 'text-secondary-500 group-hover:text-primary-500'
                     }`} />
-                    <span className="hidden xl:block">{item.label}</span>
+                    <span className="hidden xl:block text-sm">{item.label}</span>
                   </Link>
                 );
               })}
@@ -189,7 +189,7 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden glass border-t border-secondary-200/50 animate-slide-down">
+          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-secondary-200/50 animate-slide-down shadow-lg">
             <div className="px-4 py-6 space-y-2">
               {nav.map((item) => {
                 const Icon = item.icon;

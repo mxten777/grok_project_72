@@ -3,6 +3,7 @@ import { getProducts, updateProduct, addProduct, deleteProduct } from '../../uti
 import type { Product } from '../../types';
 import { Plus, Edit, Trash, Package, Search, Sparkles, Shield, Filter, X } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { Timestamp } from 'firebase/firestore';
 
 type ProductFormData = Omit<Product, 'id' | 'createdAt'>;
 
@@ -24,21 +25,21 @@ const ProductManagement = () => {
       const products = await getProducts();
       // 더미 데이터 추가 (실제 데이터가 없을 경우)
       const mockProducts: Product[] = [
-        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매 가스', imageUrl: '', createdAt: new Date('2025-01-01') },
-        { id: 'prod-002', name: '냉매 충전기 PRO-2000', category: '장비', price: 120000, stock: 25, description: '자동 냉매 충전 및 회수 장비', imageUrl: '', createdAt: new Date('2025-01-02') },
-        { id: 'prod-003', name: '에어컨 필터 세트 (10개입)', category: '부품', price: 25000, stock: 80, description: '표준 크기 에어컨 필터 교체 세트', imageUrl: '', createdAt: new Date('2025-01-03') },
-        { id: 'prod-004', name: '배관 클리너 슈퍼', category: '부품', price: 35000, stock: 45, description: '강력한 에어컨 배관 세정제', imageUrl: '', createdAt: new Date('2025-01-04') },
-        { id: 'prod-005', name: '에어컨 실외기 팬 모터', category: '부품', price: 85000, stock: 12, description: '고용량 실외기용 팬 모터', imageUrl: '', createdAt: new Date('2025-01-05') },
-        { id: 'prod-006', name: '디지털 온도 센서', category: '부품', price: 15000, stock: 200, description: '정밀 온도 감지 및 제어 센서', imageUrl: '', createdAt: new Date('2025-01-06') },
-        { id: 'prod-007', name: '친환경 냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '저전력 친환경 냉매 가스', imageUrl: '', createdAt: new Date('2025-01-07') },
-        { id: 'prod-008', name: '디지털 압력 게이지', category: '장비', price: 45000, stock: 35, description: '고정밀 압력 측정 장비', imageUrl: '', createdAt: new Date('2025-01-08') },
-        { id: 'prod-009', name: '에어컨 드레인 호스 (5m)', category: '부품', price: 8000, stock: 120, description: '내구성 좋은 배수 호스', imageUrl: '', createdAt: new Date('2025-01-09') },
-        { id: 'prod-010', name: '배관 단열 테이프', category: '부품', price: 3000, stock: 300, description: '고품질 단열 테이프 10m', imageUrl: '', createdAt: new Date('2025-01-10') },
-        { id: 'prod-011', name: '컴프레서 윤활유', category: '부품', price: 28000, stock: 8, description: '에어컨 컴프레서 전용 윤활유', imageUrl: '', createdAt: new Date('2025-01-11') },
-        { id: 'prod-012', name: '고진공 배기 펌프', category: '장비', price: 180000, stock: 5, description: '산업용 고진공 배기 장비', imageUrl: '', createdAt: new Date('2025-01-12') },
-        { id: 'prod-013', name: '에어컨 리모컨 세트', category: '부품', price: 12000, stock: 150, description: '범용 에어컨 리모컨', imageUrl: '', createdAt: new Date('2025-01-13') },
-        { id: 'prod-014', name: '냉매 누출 탐지제', category: '부품', price: 18000, stock: 90, description: '냉매 누출 감지 용액', imageUrl: '', createdAt: new Date('2025-01-14') },
-        { id: 'prod-015', name: '에어컨 케이블 세트', category: '부품', price: 22000, stock: 75, description: '에어컨 배선 케이블 모음', imageUrl: '', createdAt: new Date('2025-01-15') }
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매 가스', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-01')) },
+        { id: 'prod-002', name: '냉매 충전기 PRO-2000', category: '장비', price: 120000, stock: 25, description: '자동 냉매 충전 및 회수 장비', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-02')) },
+        { id: 'prod-003', name: '에어컨 필터 세트 (10개입)', category: '부품', price: 25000, stock: 80, description: '표준 크기 에어컨 필터 교체 세트', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-03')) },
+        { id: 'prod-004', name: '배관 클리너 슈퍼', category: '부품', price: 35000, stock: 45, description: '강력한 에어컨 배관 세정제', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-04')) },
+        { id: 'prod-005', name: '에어컨 실외기 팬 모터', category: '부품', price: 85000, stock: 12, description: '고용량 실외기용 팬 모터', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-05')) },
+        { id: 'prod-006', name: '디지털 온도 센서', category: '부품', price: 15000, stock: 200, description: '정밀 온도 감지 및 제어 센서', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-06')) },
+        { id: 'prod-007', name: '친환경 냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '저전력 친환경 냉매 가스', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-07')) },
+        { id: 'prod-008', name: '디지털 압력 게이지', category: '장비', price: 45000, stock: 35, description: '고정밀 압력 측정 장비', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-08')) },
+        { id: 'prod-009', name: '에어컨 드레인 호스 (5m)', category: '부품', price: 8000, stock: 120, description: '내구성 좋은 배수 호스', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-09')) },
+        { id: 'prod-010', name: '배관 단열 테이프', category: '부품', price: 3000, stock: 300, description: '고품질 단열 테이프 10m', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-10')) },
+        { id: 'prod-011', name: '컴프레서 윤활유', category: '부품', price: 28000, stock: 8, description: '에어컨 컴프레서 전용 윤활유', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-11')) },
+        { id: 'prod-012', name: '고진공 배기 펌프', category: '장비', price: 180000, stock: 5, description: '산업용 고진공 배기 장비', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-12')) },
+        { id: 'prod-013', name: '에어컨 리모컨 세트', category: '부품', price: 12000, stock: 150, description: '범용 에어컨 리모컨', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-13')) },
+        { id: 'prod-014', name: '냉매 누출 탐지제', category: '부품', price: 18000, stock: 90, description: '냉매 누출 감지 용액', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-14')) },
+        { id: 'prod-015', name: '에어컨 케이블 세트', category: '부품', price: 22000, stock: 75, description: '에어컨 배선 케이블 모음', imageUrl: '', createdAt: Timestamp.fromDate(new Date('2025-01-15')) }
       ];
       setProducts(products.length > 0 ? products : mockProducts);
     } catch (err) {
@@ -46,7 +47,7 @@ const ProductManagement = () => {
       console.error(err);
       // 에러 시에도 더미 데이터 표시
       setProducts([
-        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '', createdAt: new Date() }
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '', createdAt: Timestamp.now() }
       ]);
     } finally {
       setLoading(false);
@@ -106,10 +107,10 @@ const ProductManagement = () => {
             <Package className="h-8 w-8 text-white" />
           </div>
           <div>
-            <h1 className="text-4xl font-display font-bold text-secondary-900 mb-2">
+            <h1 className="text-4xl admin-heading mb-2">
               상품 관리
             </h1>
-            <p className="text-secondary-600 flex items-center">
+            <p className="admin-caption flex items-center">
               <Sparkles className="h-4 w-4 mr-2 text-accent-500" />
               상품 정보를 추가, 수정, 삭제하는 관리 시스템
             </p>
@@ -161,7 +162,7 @@ const ProductManagement = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Shield className="w-6 h-6 text-primary-600 mr-3" />
-              <h2 className="text-2xl font-display font-bold text-secondary-900">상품 목록</h2>
+              <h2 className="text-2xl admin-heading">상품 목록</h2>
             </div>
             <div className="text-sm text-secondary-600">
               총 {filteredProducts.length}개 상품
@@ -173,11 +174,11 @@ const ProductManagement = () => {
           <table className="min-w-full divide-y divide-secondary-200/30">
             <thead className="bg-secondary-50/50">
               <tr>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">상품명</th>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">카테고리</th>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">가격</th>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">재고</th>
-                <th className="px-8 py-6 text-right text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">관리</th>
+                <th className="px-8 py-6 text-left admin-table-header">상품명</th>
+                <th className="px-8 py-6 text-left admin-table-header">카테고리</th>
+                <th className="px-8 py-6 text-left admin-table-header">가격</th>
+                <th className="px-8 py-6 text-left admin-table-header">재고</th>
+                <th className="px-8 py-6 text-right admin-table-header">관리</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-secondary-200/30">
@@ -203,7 +204,7 @@ const ProductManagement = () => {
                           <Package className="h-6 w-6 text-primary-600" />
                         </div>
                         <div className="ml-4">
-                          <div className="text-sm font-display font-bold text-secondary-900">{product.name}</div>
+                          <div className="admin-table-cell text-sm font-bold">{product.name}</div>
                         </div>
                       </div>
                     </td>
@@ -213,9 +214,9 @@ const ProductManagement = () => {
                       </span>
                     </td>
                     <td className="px-8 py-6 whitespace-nowrap">
-                      <div className="text-lg font-display font-bold text-secondary-900">
-                        ₩{product.price.toLocaleString()}
-                      </div>
+                    <div className="text-lg admin-heading">
+                      ₩{product.price.toLocaleString()}
+                    </div>
                     </td>
                     <td className="px-8 py-6 whitespace-nowrap">
                       <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-display font-bold ${
@@ -249,8 +250,8 @@ const ProductManagement = () => {
                 <tr>
                   <td colSpan={5} className="text-center py-16">
                     <Package className="h-16 w-16 text-secondary-300 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-secondary-900 mb-2">상품이 없습니다</h3>
-                    <p className="text-secondary-600">검색 조건에 맞는 상품이 없습니다.</p>
+                    <h3 className="admin-subheading mb-2">상품이 없습니다</h3>
+                    <p className="admin-caption">검색 조건에 맞는 상품이 없습니다.</p>
                   </td>
                 </tr>
               )}
@@ -301,10 +302,10 @@ const ProductModal = ({ product, onClose, onSave }: { product: Product | null, o
                 {product ? <Edit className="w-6 h-6 text-white" /> : <Plus className="w-6 h-6 text-white" />}
               </div>
               <div>
-                <h2 className="text-2xl font-display font-bold text-secondary-900">
+                <h2 className="text-2xl admin-heading">
                   {product ? '상품 수정' : '새 상품 추가'}
                 </h2>
-                <p className="text-secondary-600">상품 정보를 입력해주세요</p>
+                <p className="admin-caption">상품 정보를 입력해주세요</p>
               </div>
             </div>
             <button
@@ -319,7 +320,7 @@ const ProductModal = ({ product, onClose, onSave }: { product: Product | null, o
         <form onSubmit={handleSubmit} className="p-8 max-h-[calc(90vh-200px)] overflow-y-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="md:col-span-2">
-              <label className="block text-sm font-display font-bold text-secondary-700 mb-2">상품명</label>
+              <label className="block text-sm admin-table-header mb-2">상품명</label>
               <input
                 type="text"
                 name="name"
@@ -331,7 +332,7 @@ const ProductModal = ({ product, onClose, onSave }: { product: Product | null, o
               />
             </div>
             <div>
-              <label className="block text-sm font-display font-bold text-secondary-700 mb-2">카테고리</label>
+              <label className="block text-sm admin-table-header mb-2">카테고리</label>
               <select
                 name="category"
                 value={formData.category}
@@ -344,7 +345,7 @@ const ProductModal = ({ product, onClose, onSave }: { product: Product | null, o
               </select>
             </div>
             <div>
-              <label className="block text-sm font-display font-bold text-secondary-700 mb-2">가격</label>
+              <label className="block text-sm admin-table-header mb-2">가격</label>
               <input
                 type="number"
                 name="price"
@@ -357,7 +358,7 @@ const ProductModal = ({ product, onClose, onSave }: { product: Product | null, o
               />
             </div>
             <div>
-              <label className="block text-sm font-display font-bold text-secondary-700 mb-2">재고</label>
+              <label className="block text-sm admin-table-header mb-2">재고</label>
               <input
                 type="number"
                 name="stock"
@@ -370,7 +371,7 @@ const ProductModal = ({ product, onClose, onSave }: { product: Product | null, o
               />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-display font-bold text-secondary-700 mb-2">설명</label>
+              <label className="block text-sm admin-table-header mb-2">설명</label>
               <textarea
                 name="description"
                 value={formData.description}
@@ -381,7 +382,7 @@ const ProductModal = ({ product, onClose, onSave }: { product: Product | null, o
               />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-display font-bold text-secondary-700 mb-2">이미지 URL</label>
+              <label className="block text-sm admin-table-header mb-2">이미지 URL</label>
               <input
                 type="url"
                 name="imageUrl"

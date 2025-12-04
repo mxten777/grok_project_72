@@ -28,18 +28,18 @@ const InventoryManagement = () => {
       const productsData = await getProducts();
       // 더미 데이터 추가 (실제 데이터가 없을 경우)
       const mockProducts: Product[] = [
-        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '' },
-        { id: 'prod-002', name: '냉매 충전기', category: '장비', price: 120000, stock: 25, description: '자동 냉매 충전 장비', imageUrl: '' },
-        { id: 'prod-003', name: '에어컨 필터 세트', category: '부품', price: 25000, stock: 80, description: '표준 필터 교체 세트', imageUrl: '' },
-        { id: 'prod-004', name: '배관 클리너', category: '부품', price: 35000, stock: 45, description: '에어컨 배관 세정제', imageUrl: '' },
-        { id: 'prod-005', name: '에어컨 실외기 팬', category: '부품', price: 85000, stock: 12, description: '고용량 실외기 팬 모터', imageUrl: '' },
-        { id: 'prod-006', name: '온도 센서', category: '부품', price: 15000, stock: 200, description: '정밀 온도 감지 센서', imageUrl: '' },
-        { id: 'prod-007', name: '냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '친환경 냉매 R-32', imageUrl: '' },
-        { id: 'prod-008', name: '압력 게이지', category: '장비', price: 45000, stock: 35, description: '디지털 압력 측정기', imageUrl: '' },
-        { id: 'prod-009', name: '에어컨 드레인 호스', category: '부품', price: 8000, stock: 120, description: '배수 호스 5m', imageUrl: '' },
-        { id: 'prod-010', name: '단열 테이프', category: '부품', price: 3000, stock: 300, description: '배관 단열 테이프', imageUrl: '' },
-        { id: 'prod-011', name: '컴프레서 오일', category: '부품', price: 28000, stock: 8, description: '에어컨 컴프레서 윤활유', imageUrl: '' },
-        { id: 'prod-012', name: '진공 펌프', category: '장비', price: 180000, stock: 5, description: '고진공 배기 펌프', imageUrl: '' }
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-002', name: '냉매 충전기', category: '장비', price: 120000, stock: 25, description: '자동 냉매 충전 장비', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-003', name: '에어컨 필터 세트', category: '부품', price: 25000, stock: 80, description: '표준 필터 교체 세트', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-004', name: '배관 클리너', category: '부품', price: 35000, stock: 45, description: '에어컨 배관 세정제', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-005', name: '에어컨 실외기 팬', category: '부품', price: 85000, stock: 12, description: '고용량 실외기 팬 모터', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-006', name: '온도 센서', category: '부품', price: 15000, stock: 200, description: '정밀 온도 감지 센서', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-007', name: '냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '친환경 냉매 R-32', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-008', name: '압력 게이지', category: '장비', price: 45000, stock: 35, description: '디지털 압력 측정기', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-009', name: '에어컨 드레인 호스', category: '부품', price: 8000, stock: 120, description: '배수 호스 5m', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-010', name: '단열 테이프', category: '부품', price: 3000, stock: 300, description: '배관 단열 테이프', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-011', name: '컴프레서 오일', category: '부품', price: 28000, stock: 8, description: '에어컨 컴프레서 윤활유', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-012', name: '진공 펌프', category: '장비', price: 180000, stock: 5, description: '고진공 배기 펌프', imageUrl: '', createdAt: Timestamp.now() }
       ];
       setProducts((productsData.length > 0 ? productsData : mockProducts).sort((a, b) => a.stock - b.stock));
     } catch (err) {
@@ -47,7 +47,7 @@ const InventoryManagement = () => {
       console.error(err);
       // 에러 시에도 더미 데이터 표시
       setProducts([
-        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '' }
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '고효율 에어컨용 냉매', imageUrl: '', createdAt: Timestamp.now() }
       ]);
     } finally {
       setLoading(false);
@@ -108,10 +108,10 @@ const InventoryManagement = () => {
             <Package className="h-8 w-8 text-white" />
           </div>
           <div>
-            <h1 className="text-4xl font-display font-bold text-secondary-900 mb-2">
+            <h1 className="text-4xl admin-heading mb-2">
               재고 관리
             </h1>
-            <p className="text-secondary-600 flex items-center">
+            <p className="admin-caption flex items-center">
               <Sparkles className="h-4 w-4 mr-2 text-accent-500" />
               실시간 재고 현황 및 관리 시스템
             </p>
@@ -124,9 +124,9 @@ const InventoryManagement = () => {
         <div className="glass p-8 rounded-3xl animate-fade-in-up delay-100 hover:scale-105 transition-all duration-300 cursor-pointer group">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <p className="text-sm font-medium text-secondary-600 mb-2">총 상품 종류</p>
-              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">{products.length}</p>
-              <p className="text-sm text-success-600 flex items-center">
+              <p className="admin-caption mb-2">총 상품 종류</p>
+              <p className="text-4xl admin-heading mb-2">{products.length}</p>
+              <p className="admin-caption text-success-600 flex items-center">
                 <TrendingUp className="w-4 h-4 mr-1" />
                 상품 다양성 확보
               </p>
@@ -140,9 +140,9 @@ const InventoryManagement = () => {
         <div className="glass p-8 rounded-3xl animate-fade-in-up delay-200 hover:scale-105 transition-all duration-300 cursor-pointer group">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <p className="text-sm font-medium text-secondary-600 mb-2">총 재고 수량</p>
-              <p className="text-4xl font-display font-bold text-secondary-900 mb-2">{products.reduce((acc, p) => acc + p.stock, 0)}</p>
-              <p className="text-sm text-info-600 flex items-center">
+              <p className="admin-caption mb-2">총 재고 수량</p>
+              <p className="text-4xl admin-heading mb-2">{products.reduce((acc, p) => acc + p.stock, 0)}</p>
+              <p className="admin-caption text-info-600 flex items-center">
                 <TrendingUp className="w-4 h-4 mr-1" />
                 재고 최적화 진행 중
               </p>
@@ -156,9 +156,9 @@ const InventoryManagement = () => {
         <div className={`glass p-8 rounded-3xl animate-fade-in-up delay-300 hover:scale-105 transition-all duration-300 cursor-pointer group ${lowStockCount > 0 ? 'ring-2 ring-error-200' : ''}`}>
           <div className="flex items-center justify-between mb-6">
             <div>
-              <p className="text-sm font-medium text-secondary-600 mb-2">재고 부족 상품</p>
-              <p className={`text-4xl font-display font-bold mb-2 ${lowStockCount > 0 ? 'text-error-900' : 'text-secondary-900'}`}>{lowStockCount}</p>
-              <p className={`text-sm flex items-center ${lowStockCount > 0 ? 'text-error-600' : 'text-success-600'}`}>
+              <p className="admin-caption mb-2">재고 부족 상품</p>
+              <p className={`text-4xl admin-heading mb-2 ${lowStockCount > 0 ? 'text-error-900' : 'text-secondary-900'}`}>{lowStockCount}</p>
+              <p className={`admin-caption flex items-center ${lowStockCount > 0 ? 'text-error-600' : 'text-success-600'}`}>
                 <AlertTriangle className="w-4 h-4 mr-1" />
                 {lowStockCount > 0 ? '긴급 확인 필요' : '안전 재고 수준'}
               </p>
@@ -193,7 +193,7 @@ const InventoryManagement = () => {
                 onChange={e => setShowOnlyLowStock(e.target.checked)}
                 className="h-5 w-5 rounded border-secondary-300 text-primary-600 focus:ring-primary-500 focus:ring-2"
               />
-              <span className="ml-3 text-sm font-medium text-secondary-700 group-hover:text-primary-600 transition-colors">
+              <span className="ml-3 admin-caption text-secondary-700 group-hover:text-primary-600 transition-colors">
                 재고 부족 상품만 보기
               </span>
             </label>
@@ -207,7 +207,7 @@ const InventoryManagement = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Shield className="w-6 h-6 text-primary-600 mr-3" />
-              <h2 className="text-2xl font-display font-bold text-secondary-900">재고 목록</h2>
+              <h2 className="text-2xl admin-heading">재고 목록</h2>
             </div>
             <div className="text-sm text-secondary-600">
               총 {filteredProducts.length}개 상품
@@ -219,11 +219,11 @@ const InventoryManagement = () => {
           <table className="min-w-full divide-y divide-secondary-200/30">
             <thead className="bg-secondary-50/50">
               <tr>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">상품</th>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">카테고리</th>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">현재 재고</th>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">재고 수정</th>
-                <th className="px-8 py-6 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">이력</th>
+                <th className="px-8 py-6 text-left admin-table-header">상품</th>
+                <th className="px-8 py-6 text-left admin-table-header">카테고리</th>
+                <th className="px-8 py-6 text-left admin-table-header">현재 재고</th>
+                <th className="px-8 py-6 text-left admin-table-header">재고 수정</th>
+                <th className="px-8 py-6 text-left admin-table-header">이력</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-secondary-200/30">
@@ -249,18 +249,18 @@ const InventoryManagement = () => {
                           <Package className="h-6 w-6 text-primary-600" />
                         </div>
                         <div className="ml-4">
-                          <div className="text-sm font-display font-bold text-secondary-900">{product.name}</div>
+                          <div className="admin-table-cell text-sm font-bold">{product.name}</div>
                         </div>
                       </div>
                     </td>
                     <td className="px-8 py-6 whitespace-nowrap">
-                      <span className="inline-flex px-3 py-1 rounded-full text-xs font-display font-bold bg-secondary-100 text-secondary-800">
+                      <span className="inline-flex px-3 py-1 rounded-full text-xs admin-table-header bg-secondary-100 text-secondary-800">
                         {product.category}
                       </span>
                     </td>
                     <td className="px-8 py-6 whitespace-nowrap">
                       <div className="flex items-center">
-                        <span className={`text-lg font-display font-bold ${product.stock < LOW_STOCK_THRESHOLD ? 'text-error-600' : 'text-secondary-900'}`}>
+                        <span className={`text-lg admin-heading ${product.stock < LOW_STOCK_THRESHOLD ? 'text-error-600' : 'text-secondary-900'}`}>
                           {product.stock}
                         </span>
                         {product.stock < LOW_STOCK_THRESHOLD && (
@@ -285,8 +285,8 @@ const InventoryManagement = () => {
                 <tr>
                   <td colSpan={5} className="text-center py-16">
                     <Package className="h-16 w-16 text-secondary-300 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-secondary-900 mb-2">표시할 상품이 없습니다</h3>
-                    <p className="text-secondary-600">검색 조건에 맞는 상품이 없습니다.</p>
+                    <h3 className="admin-subheading mb-2">표시할 상품이 없습니다</h3>
+                    <p className="admin-caption">검색 조건에 맞는 상품이 없습니다.</p>
                   </td>
                 </tr>
               )}
@@ -344,8 +344,8 @@ const InventoryHistoryModal = ({ productName, history, onClose }: { productName:
                 <History className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h2 className="text-2xl font-display font-bold text-secondary-900">재고 이력</h2>
-                <p className="text-secondary-600">{productName}</p>
+                <h2 className="text-2xl admin-heading">재고 이력</h2>
+                <p className="admin-caption">{productName}</p>
               </div>
             </div>
             <button
@@ -361,35 +361,35 @@ const InventoryHistoryModal = ({ productName, history, onClose }: { productName:
           <table className="min-w-full divide-y divide-secondary-200/30">
             <thead className="bg-secondary-50/50 sticky top-0">
               <tr>
-                <th className="px-6 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">일시</th>
-                <th className="px-6 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">유형</th>
-                <th className="px-6 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">변경 수량</th>
-                <th className="px-6 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">변경 후 재고</th>
-                <th className="px-6 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">사유</th>
-                <th className="px-6 py-4 text-left text-xs font-display font-bold text-secondary-600 uppercase tracking-wider">담당자</th>
+                <th className="px-6 py-4 text-left admin-table-header">일시</th>
+                <th className="px-6 py-4 text-left admin-table-header">유형</th>
+                <th className="px-6 py-4 text-left admin-table-header">변경 수량</th>
+                <th className="px-6 py-4 text-left admin-table-header">변경 후 재고</th>
+                <th className="px-6 py-4 text-left admin-table-header">사유</th>
+                <th className="px-6 py-4 text-left admin-table-header">담당자</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-secondary-200/30">
               {history.length > 0 ? history.map((entry, index) => (
                 <tr key={entry.id} className="hover:bg-secondary-50/30 transition-colors animate-fade-in-up" style={{animationDelay: `${index * 50}ms`}}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-secondary-700">
+                  <td className="px-6 py-4 whitespace-nowrap admin-body text-sm">
                     {(entry.timestamp as Timestamp)?.toDate().toLocaleString() ?? 'N/A'}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="inline-flex px-3 py-1 rounded-full text-xs font-display font-bold bg-info-100 text-info-800">
+                    <span className="inline-flex px-3 py-1 rounded-full text-xs admin-table-header bg-info-100 text-info-800">
                       {entry.changeType}
                     </span>
                   </td>
-                  <td className={`px-6 py-4 whitespace-nowrap text-sm font-display font-bold ${entry.quantityChange > 0 ? 'text-success-600' : 'text-error-600'}`}>
+                  <td className={`px-6 py-4 whitespace-nowrap admin-body text-sm font-bold ${entry.quantityChange > 0 ? 'text-success-600' : 'text-error-600'}`}>
                     {entry.quantityChange > 0 ? `+${entry.quantityChange}` : entry.quantityChange}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-display font-bold text-secondary-900">
+                  <td className="px-6 py-4 whitespace-nowrap admin-body text-sm font-bold text-secondary-900">
                     {entry.newStock}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-secondary-700">
+                  <td className="px-6 py-4 whitespace-nowrap admin-body text-sm">
                     {entry.reason}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-secondary-700">
+                  <td className="px-6 py-4 whitespace-nowrap admin-body text-sm">
                     {entry.changedBy}
                   </td>
                 </tr>
@@ -397,8 +397,8 @@ const InventoryHistoryModal = ({ productName, history, onClose }: { productName:
                 <tr>
                   <td colSpan={6} className="text-center py-16">
                     <History className="h-16 w-16 text-secondary-300 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-secondary-900 mb-2">이력 정보가 없습니다</h3>
-                    <p className="text-secondary-600">이 상품의 재고 변경 이력이 없습니다.</p>
+                    <h3 className="admin-subheading mb-2">이력 정보가 없습니다</h3>
+                    <p className="admin-caption">이 상품의 재고 변경 이력이 없습니다.</p>
                   </td>
                 </tr>
               )}

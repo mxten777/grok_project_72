@@ -29,59 +29,59 @@ const PriceManagement = () => {
           id: 'rule-001',
           name: '겨울 성수기 할인',
           type: 'percentage',
-          value: 15,
-          targetType: 'category',
-          targetId: '냉매가스',
+          discountValue: 15,
+          productIds: [],
+          category: '냉매가스',
           startDate: Timestamp.fromDate(new Date('2025-12-01')),
           endDate: Timestamp.fromDate(new Date('2026-02-28')),
-          isExclusive: false,
           priority: 1,
+          exclusive: false,
           createdAt: Timestamp.fromDate(new Date('2025-11-15'))
         },
         {
           id: 'rule-002',
           name: '신제품 출시 할인',
           type: 'fixed',
-          value: 10000,
-          targetType: 'product',
-          targetId: 'prod-002',
+          discountValue: 10000,
+          productIds: ['prod-002'],
+          category: '',
           startDate: Timestamp.fromDate(new Date('2025-12-01')),
           endDate: Timestamp.fromDate(new Date('2025-12-31')),
-          isExclusive: true,
           priority: 2,
+          exclusive: true,
           createdAt: Timestamp.fromDate(new Date('2025-11-20'))
         },
         {
           id: 'rule-003',
           name: '대량 구매 할인',
           type: 'percentage',
-          value: 20,
-          targetType: 'all',
-          targetId: '',
+          discountValue: 20,
+          productIds: [],
+          category: '',
           startDate: Timestamp.fromDate(new Date('2025-12-01')),
-          endDate: null,
-          isExclusive: false,
+          endDate: undefined,
           priority: 3,
+          exclusive: false,
           createdAt: Timestamp.fromDate(new Date('2025-11-25'))
         },
         {
           id: 'rule-004',
           name: '특별 프로모션 가격',
           type: 'set',
-          value: 30000,
-          targetType: 'product',
-          targetId: 'prod-007',
+          discountValue: 30000,
+          productIds: ['prod-007'],
+          category: '',
           startDate: Timestamp.fromDate(new Date('2025-12-15')),
           endDate: Timestamp.fromDate(new Date('2025-12-25')),
-          isExclusive: true,
           priority: 4,
+          exclusive: true,
           createdAt: Timestamp.fromDate(new Date('2025-12-01'))
         }
       ];
       const mockProducts: Product[] = [
-        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '', imageUrl: '', createdAt: new Date() },
-        { id: 'prod-002', name: '냉매 충전기 PRO-2000', category: '장비', price: 120000, stock: 25, description: '', imageUrl: '', createdAt: new Date() },
-        { id: 'prod-007', name: '친환경 냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '', imageUrl: '', createdAt: new Date() }
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-002', name: '냉매 충전기 PRO-2000', category: '장비', price: 120000, stock: 25, description: '', imageUrl: '', createdAt: Timestamp.now() },
+        { id: 'prod-007', name: '친환경 냉매 R-32', category: '냉매가스', price: 52000, stock: 18, description: '', imageUrl: '', createdAt: Timestamp.now() }
       ];
       setRules((rulesData.length > 0 ? rulesData : mockRules).sort((a, b) => (b.createdAt as Timestamp).toMillis() - (a.createdAt as Timestamp).toMillis()));
       setProducts(productsData.length > 0 ? productsData : mockProducts);
@@ -93,18 +93,18 @@ const PriceManagement = () => {
           id: 'rule-001',
           name: '겨울 성수기 할인',
           type: 'percentage',
-          value: 15,
-          targetType: 'category',
-          targetId: '냉매가스',
+          discountValue: 15,
+          productIds: [],
+          category: '냉매가스',
           startDate: Timestamp.fromDate(new Date('2025-12-01')),
           endDate: Timestamp.fromDate(new Date('2026-02-28')),
-          isExclusive: false,
           priority: 1,
+          exclusive: false,
           createdAt: Timestamp.fromDate(new Date('2025-11-15'))
         }
       ]);
       setProducts([
-        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '', imageUrl: '', createdAt: new Date() }
+        { id: 'prod-001', name: '에어컨 냉매 R-410A', category: '냉매가스', price: 45000, stock: 150, description: '', imageUrl: '', createdAt: Timestamp.now() }
       ]);
     } finally {
       setLoading(false);
@@ -166,9 +166,9 @@ const PriceManagement = () => {
   };
 
   return (
-    <div>
+    <div className="container-custom py-8 sm:py-12 lg:py-16">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">가격 정책 관리</h1>
+        <h1 className="text-2xl admin-heading">가격 정책 관리</h1>
         <button
           onClick={() => handleOpenModal()}
           className="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:bg-indigo-700 flex items-center"
@@ -182,13 +182,13 @@ const PriceManagement = () => {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">정책명</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">유형</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">할인값</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">적용 범위</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">기간</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">상태</th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">관리</th>
+              <th className="px-6 py-3 text-left admin-table-header">정책명</th>
+              <th className="px-6 py-3 text-left admin-table-header">유형</th>
+              <th className="px-6 py-3 text-left admin-table-header">할인값</th>
+              <th className="px-6 py-3 text-left admin-table-header">적용 범위</th>
+              <th className="px-6 py-3 text-left admin-table-header">기간</th>
+              <th className="px-6 py-3 text-left admin-table-header">상태</th>
+              <th className="px-6 py-3 text-right admin-table-header">관리</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -196,16 +196,16 @@ const PriceManagement = () => {
               <tr><td colSpan={7} className="text-center py-4">로딩 중...</td></tr>
             ) : rules.map(rule => (
               <tr key={rule.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{rule.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{getTypeLabel(rule.type)}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap admin-table-cell">{rule.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap admin-body">{getTypeLabel(rule.type)}</td>
+                <td className="px-6 py-4 whitespace-nowrap admin-body">
                   {rule.type === 'percentage' ? `${rule.discountValue}%` : `₩${rule.discountValue.toLocaleString()}`}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap admin-body">
                   {rule.category === 'all' ? '전체' : rule.category}
                   {rule.productIds.length > 0 && ` (${rule.productIds.length}개 상품)`}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap admin-body">
                   {(rule.startDate as Timestamp).toDate().toLocaleDateString()}
                   {rule.endDate && ` ~ ${(rule.endDate as Timestamp).toDate().toLocaleDateString()}`}
                 </td>
@@ -286,13 +286,13 @@ const PriceRuleModal = ({
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">{rule ? '정책 수정' : '새 정책 추가'}</h2>
+          <h2 className="text-2xl admin-heading">{rule ? '정책 수정' : '새 정책 추가'}</h2>
           <button onClick={onClose}><X /></button>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">정책명</label>
+              <label className="block text-sm admin-table-header">정책명</label>
               <input 
                 type="text" 
                 value={formData.name} 
@@ -304,7 +304,7 @@ const PriceRuleModal = ({
             
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700">유형</label>
+                <label className="block text-sm admin-table-header">유형</label>
                 <select 
                   value={formData.type} 
                   onChange={e => setFormData({...formData, type: e.target.value as 'percentage' | 'fixed' | 'set'})} 
@@ -316,7 +316,7 @@ const PriceRuleModal = ({
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm admin-table-header">
                   {formData.type === 'percentage' ? '할인율 (%)' : '금액 (원)'}
                 </label>
                 <input 
@@ -330,7 +330,7 @@ const PriceRuleModal = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">카테고리</label>
+              <label className="block text-sm admin-table-header">카테고리</label>
               <select 
                 value={formData.category} 
                 onChange={e => setFormData({...formData, category: e.target.value})} 
@@ -344,7 +344,7 @@ const PriceRuleModal = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700">시작일</label>
+                <label className="block text-sm admin-table-header">시작일</label>
                 <input 
                   type="date" 
                   value={formData.startDate} 
@@ -354,7 +354,7 @@ const PriceRuleModal = ({
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">종료일 (선택)</label>
+                <label className="block text-sm admin-table-header">종료일 (선택)</label>
                 <input 
                   type="date" 
                   value={formData.endDate} 
@@ -366,7 +366,7 @@ const PriceRuleModal = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700">우선순위</label>
+                <label className="block text-sm admin-table-header">우선순위</label>
                 <input 
                   type="number" 
                   value={formData.priority} 
@@ -383,7 +383,7 @@ const PriceRuleModal = ({
                     onChange={e => setFormData({...formData, exclusive: e.target.checked})} 
                     className="h-4 w-4 text-indigo-600 border-gray-300 rounded" 
                   />
-                  <span className="ml-2 text-sm text-gray-900">배타적 적용</span>
+                  <span className="ml-2 admin-body text-sm text-gray-900">배타적 적용</span>
                 </label>
               </div>
             </div>

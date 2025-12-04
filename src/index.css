@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -104,6 +105,31 @@
     @apply w-full px-4 py-3 bg-white border border-secondary-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 placeholder-secondary-400;
   }
 
+  /* Admin typography - 프리미엄 가독성 */
+  .admin-heading {
+    @apply font-sans font-bold text-secondary-900 leading-tight tracking-tight;
+  }
+
+  .admin-subheading {
+    @apply font-sans font-semibold text-secondary-700 leading-snug;
+  }
+
+  .admin-body {
+    @apply font-sans text-secondary-700 leading-relaxed;
+  }
+
+  .admin-caption {
+    @apply font-sans text-secondary-600 text-sm leading-normal;
+  }
+
+  .admin-table-header {
+    @apply font-sans font-semibold text-secondary-700 text-xs uppercase tracking-wider;
+  }
+
+  .admin-table-cell {
+    @apply font-sans text-secondary-800 leading-normal;
+  }
+
   /* Loading states */
   .loading-shimmer {
     @apply relative overflow-hidden;
@@ -164,7 +190,7 @@
 
   /* Container improvements */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8;
   }
 
   /* Grid improvements */
@@ -185,13 +211,33 @@
     @apply flex items-center justify-start;
   }
 
-  /* Spacing utilities */
-  .space-y-custom > * + * {
-    margin-top: 1.5rem;
+  /* Mobile responsive utilities */
+  .text-responsive {
+    @apply text-sm sm:text-base lg:text-lg;
   }
 
-  .space-x-custom > * + * {
-    margin-left: 1.5rem;
+  .text-responsive-sm {
+    @apply text-xs sm:text-sm lg:text-base;
+  }
+
+  .text-responsive-lg {
+    @apply text-base sm:text-lg lg:text-xl;
+  }
+
+  .btn-responsive {
+    @apply px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base;
+  }
+
+  .card-responsive {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+
+  .gap-responsive {
+    @apply gap-4 sm:gap-6 lg:gap-8;
+  }
+
+  .space-responsive {
+    @apply space-y-4 sm:space-y-6 lg:space-y-8;
   }
 }
 
