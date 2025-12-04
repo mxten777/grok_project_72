@@ -113,12 +113,17 @@ const Layout = ({ children, isAdmin = false }: LayoutProps) => {
               <div className="relative">
                 <button
                   onClick={() => setProfileMenuOpen(!isProfileMenuOpen)}
-                  className="flex items-center space-x-2 p-2 rounded-xl hover:bg-secondary-100 transition-all duration-200 hover:scale-105"
+                  className="flex items-center space-x-2 p-2 rounded-xl bg-gradient-to-r from-emerald-500 to-rose-500 text-white hover:from-emerald-600 hover:to-rose-600 transition-all duration-200 hover:scale-105 border border-emerald-400 shadow-lg hover:shadow-xl font-medium"
                 >
                   {user ? (
-                    <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-soft">
-                      <UserCircle className="h-5 w-5 text-white" />
-                    </div>
+                    <>
+                      <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-soft">
+                        <UserCircle className="h-5 w-5 text-white" />
+                      </div>
+                      <span className="hidden sm:block text-sm font-medium">
+                        {user.displayName || user.email?.split('@')[0] || '사용자'}
+                      </span>
+                    </>
                   ) : (
                     <Link to="/login" className="inline-flex items-center px-4 py-2 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition-all duration-200 shadow-soft hover:shadow-medium">
                       로그인
